@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>KhaneComboosterLLC — We Manage. You Profit.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --void: #06060F;
+  --surface: #0E0E1C;
+  --surface-2: #16162A;
+  --violet: #7B35FF;
+  --violet-glow: #9D5FFF;
+  --gold: #E8A838;
+  --text-primary: #EEEEF8;
+  --text-muted: #6B6B8A;
+  --border: #1E1E38;
+  --green-wa: #25D366;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--void);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--void); }
+::-webkit-scrollbar-thumb { background: var(--violet); border-radius: 3px; }
+
+/* SCROLL PROGRESS */
+#scroll-progress {
+  position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+  background: linear-gradient(90deg, var(--violet), var(--gold));
+  z-index: 10000; transition: width 0.1s linear;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+  padding: 22px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.35s ease;
+}
+nav.scrolled {
+  background: rgba(6,6,15,0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 40px;
+}
+.nav-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+.nav-logo span.accent { color: var(--violet); }
+.nav-logo span.muted { color: var(--text-muted); font-size: 14px; font-weight: 600; }
+.nav-links {
+  display: flex; gap: 32px; list-style: none;
+}
+.nav-links a {
+  color: var(--text-muted); text-decoration: none;
+  font-size: 14px; font-weight: 500;
+  position: relative; transition: color 0.25s;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -3px; left: 0;
+  width: 0; height: 1px; background: var(--violet);
+  transition: width 0.25s ease;
+}
+.nav-links a:hover { color: var(--text-primary); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: var(--violet); color: #fff; text-decoration: none;
+  padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600;
+  transition: all 0.25s; white-space: nowrap; flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(123,53,255,0.3);
+}
+.nav-cta:hover { background: var(--violet-glow); box-shadow: 0 0 30px rgba(123,53,255,0.5); transform: translateY(-1px); }
+.hamburger {
+  display: none; flex-direction: column; gap: 5px; cursor: pointer;
+  background: none; border: none; padding: 4px;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--text-primary); border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu {
+  display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+  background: rgba(6,6,15,0.97); backdrop-filter: blur(20px);
+  z-index: 999; flex-direction: column; align-items: center;
+  justify-content: center; gap: 32px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  color: var(--text-primary); text-decoration: none;
+  font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 700;
+  transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--violet); }
+.mobile-menu .m-cta {
+  background: var(--violet); padding: 14px 36px; border-radius: 10px;
+  font-size: 18px;
+}
+
+/* HERO */
+#home {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 120px 40px 80px;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+}
+.orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px); opacity: 0.18;
+}
+.orb-1 { width: 500px; height: 500px; background: var(--violet); top: -100px; right: -100px; animation: floatOrb 14s ease-in-out infinite; }
+.orb-2 { width: 350px; height: 350px; background: #1A0A6B; bottom: 50px; left: -80px; animation: floatOrb 11s ease-in-out infinite reverse; }
+.orb-3 { width: 250px; height: 250px; background: #0A4080; top: 40%; left: 30%; animation: floatOrb 9s ease-in-out infinite 2s; }
+@keyframes floatOrb {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(20px,-30px) scale(1.05); }
+  66% { transform: translate(-15px,20px) scale(0.96); }
+}
+.dot-grid {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.hero-inner {
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  position: relative; z-index: 1;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid rgba(232,168,56,0.4); border-radius: 6px;
+  padding: 6px 14px; margin-bottom: 24px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--gold);
+  background: rgba(232,168,56,0.06);
+}
+.hero-headline {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(38px, 5.5vw, 80px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+.hero-headline .hl { color: var(--violet); }
+.hero-sub {
+  font-size: clamp(15px, 1.8vw, 18px);
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  max-width: 500px;
+}
+.ticker-card {
+  background: var(--surface-2);
+  border: 1px solid rgba(232,168,56,0.25);
+  border-radius: 14px;
+  padding: 18px 24px;
+  margin-bottom: 32px;
+  max-width: 380px;
+  box-shadow: 0 0 30px rgba(232,168,56,0.08);
+}
+.ticker-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px;
+}
+.ticker-label span { color: var(--gold); }
+.ticker-number {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800; color: var(--gold);
+  letter-spacing: -0.02em; line-height: 1;
+  margin-bottom: 4px;
+}
+.ticker-sub { font-size: 12px; color: var(--text-muted); }
+.hero-btns {
+  display: flex; gap: 14px; flex-wrap: wrap;
+}
+.btn-primary {
+  background: var(--violet); color: #fff;
+  padding: 14px 26px; border-radius: 10px;
+  font-size: 15px; font-weight: 600;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.25s;
+  box-shadow: 0 0 25px rgba(123,53,255,0.35);
+  white-space: nowrap;
+}
+.btn-primary:hover { background: var(--violet-glow); transform: translateY(-2px); box-shadow: 0 0 40px rgba(123,53,255,0.5); }
+.btn-ghost {
+  color: var(--text-primary); border: 1px solid var(--border);
+  padding: 14px 26px; border-radius: 10px;
+  font-size: 15px; font-weight: 500;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.25s; white-space: nowrap;
+}
+.btn-ghost:hover { border-color: var(--violet); color: var(--violet); }
+
+/* Hero visual */
+.hero-visual {
+  display: flex; align-items: center; justify-content: center;
+  position: relative; min-height: 340px;
+}
+.orbit-center {
+  width: 120px; height: 120px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(123,53,255,0.6), rgba(26,10,107,0.8));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 13px;
+  text-align: center; line-height: 1.3; padding: 10px;
+  box-shadow: 0 0 60px rgba(123,53,255,0.4), 0 0 120px rgba(123,53,255,0.15);
+  position: relative; z-index: 2; flex-shrink: 0;
+}
+.orbit-ring {
+  position: absolute; border-radius: 50%;
+  border: 1px solid rgba(123,53,255,0.2);
+}
+.ring-1 { width: 220px; height: 220px; animation: spin 20s linear infinite; }
+.ring-2 { width: 320px; height: 320px; animation: spin 30s linear infinite reverse; }
+.ring-3 { width: 420px; height: 420px; animation: spin 40s linear infinite; border-color: rgba(123,53,255,0.1); }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.market-badge {
+  position: absolute; padding: 8px 14px; border-radius: 20px;
+  font-size: 12px; font-weight: 600;
+  background: var(--surface-2); border: 1px solid var(--border);
+  white-space: nowrap;
+  animation: floatBadge 6s ease-in-out infinite;
+}
+.market-badge:nth-child(3) { top: 5%; left: 55%; animation-delay: 0s; border-color: rgba(255,153,0,0.4); }
+.market-badge:nth-child(4) { top: 25%; right: 0%; animation-delay: 1s; border-color: rgba(245,100,0,0.4); }
+.market-badge:nth-child(5) { bottom: 25%; right: 2%; animation-delay: 2s; border-color: rgba(229,50,56,0.4); }
+.market-badge:nth-child(6) { bottom: 5%; left: 50%; animation-delay: 3s; border-color: rgba(254,44,85,0.4); }
+.market-badge:nth-child(7) { top: 25%; left: 0%; animation-delay: 0.5s; border-color: rgba(248,92,26,0.4); }
+.market-badge:nth-child(8) { bottom: 25%; left: 5%; animation-delay: 1.5s; border-color: rgba(0,125,198,0.4); }
+@keyframes floatBadge {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.scroll-arrow {
+  position: absolute; bottom: 30px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  animation: bounce 2s ease-in-out infinite;
+  color: var(--text-muted); font-size: 12px;
+}
+.scroll-arrow i { font-size: 18px; color: var(--violet); }
+@keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+
+/* TRUST BAR */
+.trust-bar {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0; overflow: hidden;
+}
+.trust-track {
+  display: flex; gap: 40px; width: max-content;
+  animation: marquee 25s linear infinite;
+}
+.trust-item {
+  font-size: 13px; font-weight: 500; color: var(--text-muted);
+  white-space: nowrap; display: flex; align-items: center; gap: 8px;
+}
+.trust-item span { color: var(--text-primary); }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* SECTIONS */
+section {
+  padding: 100px 40px;
+  position: relative;
+}
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--violet);
+  margin-bottom: 14px;
+}
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(30px, 4.5vw, 56px);
+  font-weight: 800; letter-spacing: -0.025em;
+  line-height: 1.1; margin-bottom: 16px;
+}
+.section-sub {
+  font-size: 17px; color: var(--text-muted); line-height: 1.7;
+  max-width: 560px; margin-bottom: 48px;
+}
+
+/* ABOUT */
+#about { background: var(--void); }
+.about-grid {
+  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 72px; align-items: center;
+}
+.about-text p {
+  color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; font-size: 16px;
+}
+.about-text p strong { color: var(--text-primary); }
+.about-pills {
+  display: flex; gap: 10px; flex-wrap: wrap; margin-top: 28px;
+}
+.pill {
+  padding: 8px 16px; border-radius: 6px;
+  background: rgba(123,53,255,0.1); border: 1px solid rgba(123,53,255,0.25);
+  font-size: 13px; font-weight: 600; color: var(--violet-glow);
+}
+.stat-cards {
+  display: flex; flex-direction: column; gap: 16px;
+}
+.stat-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--violet);
+  border-radius: 14px;
+  padding: 22px 26px;
+  transition: all 0.3s;
+}
+.stat-card:hover { transform: translateX(6px); border-left-color: var(--gold); }
+.stat-card:nth-child(2) { margin-left: 20px; }
+.stat-card:nth-child(3) { margin-left: 40px; }
+.stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 38px; font-weight: 800;
+  color: var(--violet); line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-label { font-size: 14px; color: var(--text-muted); font-weight: 500; }
+
+/* SERVICES */
+#services { background: var(--surface); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.service-card {
+  background: var(--void);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  position: relative; overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+  cursor: pointer;
+}
+.service-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  border-radius: 16px 16px 0 0;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--violet);
+  box-shadow: 0 12px 40px rgba(123,53,255,0.18);
+}
+.service-card.featured {
+  border-color: rgba(123,53,255,0.4);
+  background: linear-gradient(135deg, rgba(123,53,255,0.08), rgba(232,168,56,0.06));
+  grid-column: span 1;
+}
+.service-badge {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--gold); color: #000;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+  padding: 3px 8px; border-radius: 4px; text-transform: uppercase;
+}
+.service-icon { font-size: 28px; margin-bottom: 14px; }
+.service-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 17px; font-weight: 700;
+  margin-bottom: 8px; line-height: 1.3;
+}
+.service-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; margin-bottom: 20px; }
+.service-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600; color: var(--violet);
+  text-decoration: none; transition: gap 0.2s;
+}
+.service-link:hover { gap: 10px; color: var(--violet-glow); }
+
+/* HOW IT WORKS */
+#how-it-works { background: var(--void); }
+.steps-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 32px;
+  position: relative;
+}
+.steps-grid::before {
+  content: ''; position: absolute;
+  top: 52px; left: 15%; right: 15%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--violet), var(--gold), transparent);
+  opacity: 0.3;
+}
+.step-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px 28px;
+  text-align: center;
+  transition: all 0.3s;
+}
+.step-card:hover { border-color: var(--violet); transform: translateY(-4px); }
+.step-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 64px; font-weight: 800;
+  color: var(--violet); opacity: 0.15;
+  line-height: 1; margin-bottom: -10px;
+}
+.step-icon { font-size: 32px; margin-bottom: 14px; }
+.step-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 19px; font-weight: 700;
+  margin-bottom: 12px;
+}
+.step-desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+.steps-cta { text-align: center; margin-top: 48px; }
+
+/* COMMISSION */
+#commission {
+  background: linear-gradient(135deg, #0A0516, #0E0824, #07070F);
+}
+.commission-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+}
+.commission-text p { color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; }
+.commission-features { list-style: none; margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+.commission-features li {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 15px; font-weight: 500;
+}
+.commission-features li i { color: var(--gold); font-size: 14px; flex-shrink: 0; }
+.calc-card {
+  background: var(--surface-2);
+  border: 1px solid rgba(232,168,56,0.3);
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: 0 0 60px rgba(232,168,56,0.08);
+}
+.calc-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px; font-weight: 700;
+  color: var(--text-muted); margin-bottom: 24px;
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.calc-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+}
+.calc-row:last-child { border-bottom: none; }
+.calc-row .label { color: var(--text-muted); }
+.calc-row .val { font-weight: 600; color: var(--text-primary); }
+.calc-row.highlight {
+  background: rgba(232,168,56,0.06);
+  margin: 0 -10px; padding: 16px 10px;
+  border-radius: 10px; border: none;
+  margin-top: 8px;
+}
+.calc-row.highlight .label { color: var(--gold); font-weight: 600; }
+.calc-row.highlight .val { color: var(--gold); font-size: 22px; font-weight: 800; font-family: 'Syne', sans-serif; }
+
+/* TESTIMONIALS */
+#testimonials { background: var(--surface); }
+.testi-carousel { position: relative; overflow: hidden; }
+.testi-track {
+  display: flex; gap: 24px;
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.testi-card {
+  min-width: calc(33.333% - 16px);
+  background: var(--void);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--violet);
+  border-radius: 16px;
+  padding: 28px 24px;
+  flex-shrink: 0;
+}
+.testi-stars { color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 14px; }
+.testi-quote {
+  font-size: 15px; color: var(--text-muted);
+  line-height: 1.75; font-style: italic;
+  margin-bottom: 20px;
+}
+.testi-result {
+  display: inline-block;
+  background: rgba(123,53,255,0.12); border: 1px solid rgba(123,53,255,0.25);
+  color: var(--violet-glow); font-size: 12px; font-weight: 600;
+  padding: 4px 10px; border-radius: 5px; margin-bottom: 16px;
+}
+.testi-author { font-weight: 600; font-size: 14px; }
+.testi-role { font-size: 12px; color: var(--text-muted); }
+.testi-controls {
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; margin-top: 32px;
+}
+.testi-btn {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--surface-2); border: 1px solid var(--border);
+  color: var(--text-muted); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s; font-size: 14px;
+}
+.testi-btn:hover { border-color: var(--violet); color: var(--violet); }
+.testi-dots { display: flex; gap: 8px; }
+.dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--border); cursor: pointer;
+  transition: all 0.2s;
+}
+.dot.active { background: var(--violet); width: 20px; border-radius: 3px; }
+
+/* FAQ */
+#faq { background: var(--void); }
+.faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.faq-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+  transition: border-color 0.25s;
+}
+.faq-item.open { border-color: rgba(123,53,255,0.4); border-left: 3px solid var(--violet); }
+.faq-q {
+  width: 100%; background: none; border: none;
+  padding: 20px 24px; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  text-align: left; color: var(--text-primary);
+  font-size: 15px; font-weight: 600; font-family: 'DM Sans', sans-serif;
+  gap: 16px;
+}
+.faq-icon { flex-shrink: 0; color: var(--violet); transition: transform 0.3s; font-size: 14px; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.3s ease;
+  padding: 0 24px;
+}
+.faq-item.open .faq-a { max-height: 200px; padding: 0 24px 20px; }
+.faq-a p { color: var(--text-muted); font-size: 14px; line-height: 1.75; }
+
+/* BOOKING */
+#booking { background: var(--surface); }
+.booking-hero-card {
+  background: linear-gradient(135deg, var(--violet), #4A1AB8);
+  border-radius: 20px; padding: 52px 48px;
+  text-align: center; margin-bottom: 48px;
+  box-shadow: 0 20px 60px rgba(123,53,255,0.3);
+}
+.booking-hero-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(26px, 4vw, 42px); font-weight: 800;
+  margin-bottom: 14px; line-height: 1.15;
+}
+.booking-hero-card p { font-size: 16px; opacity: 0.85; margin-bottom: 28px; line-height: 1.65; }
+.btn-white {
+  background: #fff; color: var(--violet);
+  padding: 15px 32px; border-radius: 10px;
+  font-size: 16px; font-weight: 700;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.25s;
+}
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+.booking-grid-label {
+  font-size: 13px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-muted);
+  text-align: center; margin-bottom: 24px;
+}
+.booking-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
+  margin-bottom: 36px;
+}
+.booking-item {
+  background: var(--void); border: 1px solid var(--border);
+  border-radius: 12px; padding: 18px 14px;
+  text-align: center; cursor: pointer;
+  text-decoration: none; color: var(--text-primary);
+  transition: all 0.25s; display: block;
+}
+.booking-item:hover { border-color: var(--violet); background: rgba(123,53,255,0.06); transform: translateY(-3px); }
+.booking-item .bi { font-size: 22px; margin-bottom: 8px; display: block; }
+.booking-item span { font-size: 11px; font-weight: 600; line-height: 1.3; display: block; color: var(--text-muted); }
+.booking-email { text-align: center; font-size: 14px; color: var(--text-muted); }
+.booking-email a { color: var(--violet); text-decoration: none; font-weight: 600; }
+
+/* GLOBAL MAP */
+#global { background: var(--void); }
+.map-wrap {
+  position: relative; max-width: 800px; margin: 0 auto 40px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 20px; padding: 40px; overflow: hidden;
+}
+.world-svg { width: 100%; height: auto; opacity: 0.25; }
+.pulse-dot {
+  position: absolute; width: 10px; height: 10px;
+}
+.pulse-dot::before, .pulse-dot::after {
+  content: ''; position: absolute;
+  border-radius: 50%;
+}
+.pulse-dot::before {
+  width: 10px; height: 10px;
+  background: var(--violet); top: 0; left: 0;
+}
+.pulse-dot::after {
+  width: 30px; height: 30px;
+  border: 2px solid var(--violet);
+  top: -10px; left: -10px;
+  animation: pulseRing 2.5s ease-out infinite;
+}
+@keyframes pulseRing {
+  0% { transform: scale(0.4); opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+.global-stats {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;
+}
+.g-pill {
+  background: var(--surface-2); border: 1px solid var(--border);
+  padding: 12px 22px; border-radius: 50px;
+  font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 8px;
+}
+.g-pill span { color: var(--violet); font-weight: 700; }
+
+/* CONTACT */
+#contact { background: var(--surface); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.contact-card {
+  background: var(--void); border: 1px solid var(--border);
+  border-radius: 16px; padding: 28px 24px;
+  margin-bottom: 16px; transition: border-color 0.25s;
+}
+.contact-card:hover { border-color: rgba(123,53,255,0.3); }
+.contact-card-top {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 14px;
+}
+.contact-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.contact-icon.wa { background: rgba(37,211,102,0.12); color: var(--green-wa); }
+.contact-icon.em { background: rgba(123,53,255,0.12); color: var(--violet); }
+.contact-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+.contact-val { font-size: 16px; font-weight: 600; }
+.contact-note { font-size: 12px; color: var(--text-muted); margin-top: 8px; margin-bottom: 14px; }
+.btn-wa {
+  background: rgba(37,211,102,0.12); border: 1px solid rgba(37,211,102,0.3);
+  color: var(--green-wa); text-decoration: none;
+  padding: 10px 20px; border-radius: 8px;
+  font-size: 13px; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.25s;
+}
+.btn-wa:hover { background: rgba(37,211,102,0.2); }
+.btn-em {
+  background: rgba(123,53,255,0.1); border: 1px solid rgba(123,53,255,0.25);
+  color: var(--violet-glow); text-decoration: none;
+  padding: 10px 20px; border-radius: 8px;
+  font-size: 13px; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.25s;
+}
+.btn-em:hover { background: rgba(123,53,255,0.18); }
+
+.social-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px; font-weight: 700; margin-bottom: 24px;
+}
+.social-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 12px;
+}
+.social-icon {
+  width: 100%; aspect-ratio: 1;
+  background: var(--void); border: 1px solid var(--border);
+  border-radius: 14px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px; text-decoration: none;
+  font-size: 22px; color: var(--text-muted);
+  transition: all 0.3s; cursor: pointer;
+}
+.social-icon span { font-size: 10px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.social-icon:hover { transform: scale(1.08); }
+.si-fb:hover { color: #1877F2; border-color: #1877F2; box-shadow: 0 0 20px rgba(24,119,242,0.2); }
+.si-ig:hover { color: #E1306C; border-color: #E1306C; box-shadow: 0 0 20px rgba(225,48,108,0.2); }
+.si-tk:hover { color: #FE2C55; border-color: #FE2C55; box-shadow: 0 0 20px rgba(254,44,85,0.2); }
+.si-yt:hover { color: #FF0000; border-color: #FF0000; box-shadow: 0 0 20px rgba(255,0,0,0.2); }
+.si-li:hover { color: #0A66C2; border-color: #0A66C2; box-shadow: 0 0 20px rgba(10,102,194,0.2); }
+.si-tw:hover { color: #1DA1F2; border-color: #1DA1F2; box-shadow: 0 0 20px rgba(29,161,242,0.2); }
+.si-pi:hover { color: #E60023; border-color: #E60023; box-shadow: 0 0 20px rgba(230,0,35,0.2); }
+.si-sc:hover { color: #FFFC00; border-color: #FFFC00; box-shadow: 0 0 20px rgba(255,252,0,0.2); }
+.si-th:hover { color: #fff; border-color: #fff; box-shadow: 0 0 20px rgba(255,255,255,0.1); }
+
+/* FOOTER */
+footer {
+  background: #030308;
+  border-top: 1px solid var(--border);
+  padding: 60px 40px 30px;
+}
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-top {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 60px; margin-bottom: 48px;
+}
+.footer-brand-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px; font-weight: 800;
+  margin-bottom: 10px;
+}
+.footer-brand-name span { color: var(--violet); }
+.footer-tagline { color: var(--text-muted); font-size: 14px; margin-bottom: 20px; }
+.footer-contact-line {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--text-muted); margin-bottom: 8px;
+}
+.footer-contact-line a { color: var(--text-muted); text-decoration: none; }
+.footer-contact-line a:hover { color: var(--violet); }
+.footer-col h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px; font-weight: 700;
+  margin-bottom: 18px; color: var(--text-primary);
+  letter-spacing: 0.05em; text-transform: uppercase;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a {
+  color: var(--text-muted); text-decoration: none;
+  font-size: 14px; transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--violet); }
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-copy { font-size: 13px; color: var(--text-muted); }
+.footer-socials { display: flex; gap: 12px; }
+.footer-socials a {
+  width: 34px; height: 34px; border-radius: 8px;
+  background: var(--surface); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-muted); font-size: 14px; text-decoration: none;
+  transition: all 0.2s;
+}
+.footer-socials a:hover { border-color: var(--violet); color: var(--violet); }
+
+/* FLOATING WHATSAPP */
+.wa-float {
+  position: fixed; bottom: 28px; right: 28px; z-index: 9999;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: var(--green-wa);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 26px; text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: all 0.25s;
+}
+.wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.6); }
+.wa-ring {
+  position: absolute; width: 60px; height: 60px; border-radius: 50%;
+  border: 2px solid var(--green-wa);
+  animation: waRing 3s ease-out infinite 2s;
+}
+@keyframes waRing {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2); opacity: 0; }
+}
+.wa-tooltip {
+  position: absolute; right: 70px; white-space: nowrap;
+  background: var(--surface-2); border: 1px solid var(--border);
+  color: var(--text-primary); font-size: 13px; font-weight: 500;
+  padding: 6px 12px; border-radius: 8px;
+  opacity: 0; pointer-events: none; transition: opacity 0.2s;
+}
+.wa-float:hover .wa-tooltip { opacity: 1; }
+
+/* BACK TO TOP */
+#back-top {
+  position: fixed; bottom: 28px; left: 28px; z-index: 9999;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--surface-2); border: 1px solid var(--border);
+  color: var(--violet); font-size: 16px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transform: translateY(10px);
+  transition: all 0.3s; text-decoration: none;
+}
+#back-top.visible { opacity: 1; transform: translateY(0); }
+#back-top:hover { background: rgba(123,53,255,0.15); border-color: var(--violet); }
+
+/* REVEAL ANIMATIONS */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1),
+              transform 0.65s cubic-bezier(0.22,1,0.36,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* PRELOADER */
+#preloader {
+  position: fixed; inset: 0; background: var(--void);
+  z-index: 99999;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 20px;
+}
+.pre-logo {
+  font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800;
+  opacity: 0; transform: translateY(20px);
+  animation: preReveal 0.6s ease forwards 0.3s;
+}
+.pre-logo span { color: var(--violet); }
+.pre-bar {
+  width: 200px; height: 2px; background: var(--border); border-radius: 2px; overflow: hidden;
+}
+.pre-bar-fill {
+  height: 100%; background: linear-gradient(90deg, var(--violet), var(--gold));
+  animation: preLoad 1.2s ease forwards 0.3s; width: 0%;
+}
+@keyframes preReveal { to { opacity: 1; transform: translateY(0); } }
+@keyframes preLoad { to { width: 100%; } }
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1024px) {
+  nav { padding: 18px 24px; }
+  nav.scrolled { padding: 12px 24px; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+
+  section { padding: 80px 24px; }
+  #home { padding: 100px 24px 60px; }
+
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero-visual { min-height: 280px; }
+  .ring-3 { display: none; }
+
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .stat-card:nth-child(2) { margin-left: 0; }
+  .stat-card:nth-child(3) { margin-left: 0; }
+
+  .services-grid { grid-template-columns: repeat(2,1fr); }
+
+  .steps-grid { grid-template-columns: 1fr; gap: 20px; }
+  .steps-grid::before { display: none; }
+
+  .commission-grid { grid-template-columns: 1fr; gap: 48px; }
+
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+
+  .booking-grid { grid-template-columns: repeat(3,1fr); gap: 10px; }
+
+  .testi-card { min-width: calc(50% - 12px); }
+}
+
+@media (max-width: 640px) {
+  section { padding: 64px 20px; }
+  #home { padding: 90px 20px 50px; }
+  nav { padding: 16px 20px; }
+
+  .hero-btns { flex-direction: column; align-items: flex-start; }
+  .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+
+  .services-grid { grid-template-columns: 1fr; }
+
+  .booking-grid { grid-template-columns: repeat(2,1fr); }
+
+  .testi-card { min-width: 100%; }
+
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+
+  .social-grid { grid-template-columns: repeat(3,1fr); }
+
+  .booking-hero-card { padding: 32px 24px; }
+
+  .ring-2, .ring-3 { display: none; }
+  .ring-1 { width: 180px; height: 180px; }
+
+  .orbit-center { width: 90px; height: 90px; font-size: 11px; }
+
+  .hero-visual { min-height: 220px; }
+
+  .global-stats { flex-direction: column; align-items: center; }
+
+  footer { padding: 48px 20px 24px; }
+
+  .calc-card { padding: 24px 20px; }
+  .commission-grid { gap: 32px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<div id="preloader">
+  <div class="pre-logo">KhaneCombo<span>Booster</span>LLC</div>
+  <div class="pre-bar"><div class="pre-bar-fill"></div></div>
+</div>
+
+<div id="scroll-progress"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">KhaneCombo<span class="accent">Booster</span><span class="muted">LLC</span></a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#how-it-works">Process</a></li>
+    <li><a href="#testimonials">Results</a></li>
+    <li><a href="#booking">Book</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/923334038991?text=Hi, I want a free store audit" class="nav-cta" target="_blank">Free Audit →</a>
+  <button class="hamburger" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" onclick="closeMob()">Home</a>
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="#services" onclick="closeMob()">Services</a>
+  <a href="#how-it-works" onclick="closeMob()">Process</a>
+  <a href="#commission" onclick="closeMob()">Commission</a>
+  <a href="#testimonials" onclick="closeMob()">Results</a>
+  <a href="#booking" onclick="closeMob()">Book</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="https://wa.me/923334038991?text=Hi, I want a free store audit" class="m-cta" target="_blank">Free Audit →</a>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="dot-grid"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">⚡ Commission-Based · Zero Upfront Risk</div>
+      <h1 class="hero-headline">We Run Your<br>Store. You Keep<br><span class="hl">The Profits.</span></h1>
+      <p class="hero-sub">KhaneComboosterLLC manages your Amazon, Etsy, eBay & TikTok Shop accounts end-to-end. We earn on commission — you only pay when you win.</p>
+      <div class="ticker-card">
+        <div class="ticker-label">💰 <span>Total Client Revenue Generated</span></div>
+        <div class="ticker-number" id="ticker">$4,823,491</div>
+        <div class="ticker-sub">across 150+ managed stores worldwide</div>
+      </div>
+      <div class="hero-btns">
+        <a href="https://wa.me/923334038991?text=Hi, I want a free store audit from KhaneComboosterLLC" target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> Start Free on WhatsApp</a>
+        <a href="#services" class="btn-ghost">Explore Services <i class="fas fa-arrow-down"></i></a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="orbit-ring ring-1"></div>
+      <div class="orbit-ring ring-2"></div>
+      <div class="orbit-ring ring-3"></div>
+      <div class="orbit-center">KhaneCombo<br>Booster<br>LLC</div>
+      <div class="market-badge">🛒 Amazon</div>
+      <div class="market-badge">🧵 Etsy</div>
+      <div class="market-badge">🏷️ eBay</div>
+      <div class="market-badge">🎵 TikTok Shop</div>
+      <div class="market-badge">📦 Daraz</div>
+      <div class="market-badge">🏪 Walmart</div>
+    </div>
+  </div>
+  <div class="scroll-arrow">
+    <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;">Scroll</span>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-track" id="trustTrack">
+    <div class="trust-item">⭐ <span>150+ Stores Managed</span></div>
+    <div class="trust-item">🌍 <span>30+ Countries</span></div>
+    <div class="trust-item">💰 Commission Model Available</div>
+    <div class="trust-item">⚡ <span>Amazon FBA Specialists</span></div>
+    <div class="trust-item">🛍 Etsy · eBay · TikTok Shop</div>
+    <div class="trust-item">📈 <span>$5M+ Revenue Generated</span></div>
+    <div class="trust-item">✅ Full Account Management</div>
+    <div class="trust-item">🔒 Brand Protection Included</div>
+    <div class="trust-item">⭐ <span>150+ Stores Managed</span></div>
+    <div class="trust-item">🌍 <span>30+ Countries</span></div>
+    <div class="trust-item">💰 Commission Model Available</div>
+    <div class="trust-item">⚡ <span>Amazon FBA Specialists</span></div>
+    <div class="trust-item">🛍 Etsy · eBay · TikTok Shop</div>
+    <div class="trust-item">📈 <span>$5M+ Revenue Generated</span></div>
+    <div class="trust-item">✅ Full Account Management</div>
+    <div class="trust-item">🔒 Brand Protection Included</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="eyebrow reveal">Who We Are</div>
+        <h2 class="section-title reveal reveal-delay-1">The Agency That Only<br>Wins When You Win.</h2>
+        <p class="reveal reveal-delay-2">KhaneComboosterLLC was built for one reason: most marketplace sellers burn money hiring the wrong people or running their accounts without strategy. <strong>We fix that.</strong></p>
+        <p class="reveal reveal-delay-2">We take full operational control of your marketplace accounts. Listings, SEO, PPC ads, customer service, returns, brand protection — everything. You stay focused on what you do best.</p>
+        <p class="reveal reveal-delay-3">Our most popular model: <strong>zero management fees</strong>. We earn a percentage of the revenue we generate for you. If we don't grow your store, we don't get paid. That's the deal.</p>
+        <div class="about-pills reveal reveal-delay-3">
+          <div class="pill">✓ Full Account Takeover</div>
+          <div class="pill">✓ Commission Available</div>
+          <div class="pill">✓ Global Reach</div>
+        </div>
+      </div>
+      <div class="stat-cards">
+        <div class="stat-card reveal reveal-delay-1">
+          <div class="stat-num" data-target="150">0</div>
+          <div class="stat-label">Stores Under Management</div>
+        </div>
+        <div class="stat-card reveal reveal-delay-2">
+          <div class="stat-num" data-target="5" data-prefix="$" data-suffix="M+">0</div>
+          <div class="stat-label">Revenue Generated for Clients</div>
+        </div>
+        <div class="stat-card reveal reveal-delay-3">
+          <div class="stat-num" data-target="30">0</div>
+          <div class="stat-label">Countries Served</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="eyebrow reveal">What We Manage</div>
+    <h2 class="section-title reveal reveal-delay-1">Every Major Marketplace.<br>Fully Handled.</h2>
+    <p class="section-sub reveal reveal-delay-2">Pick your platform — we take over and grow it. End-to-end account management with proven results.</p>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1" style="--top-c:#FF9900;" onclick="window.open('https://wa.me/923334038991?text=Hi, I am interested in Amazon FBA Management','_blank')">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#FF9900;border-radius:16px 16px 0 0;"></div>
+        <div class="service-icon">📦</div>
+        <div class="service-name">Amazon FBA Management</div>
+        <div class="service-desc">Full FBA setup, listing optimization, PPC ads, inventory management, and account health monitoring.</div>
+        <a class="service-link" href="https://wa.me/923334038991?text=Hi, I am interested in Amazon FBA Management" target="_blank">Book This Service <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal reveal-delay-2" style="--top-c:#FF9900;" onclick="window.open('https://wa.me/923334038991?text=Hi, I am interested in Amazon FBM Management','_blank')">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#FF9900;border-radius:16px 16px 0 0;"></div>
+        <div class="service-icon">🏭</div>
+        <div class="service-name">Amazon FBM Management</div>
+        <div class="service-desc">Merchant-fulfilled operations, inventory control, shipping coordination, and return management.</div>
+        <a class="service-link" href="https://wa.me/923334038991?text=Hi, I am interested in Amazon FBM Management" target="_blank">Book This Service <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal reveal-delay-3" onclick="window.open('https://wa.me/923334038991?text=Hi, I am interested in Etsy Shop Management','_blank')">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#F56400;border-radius:16px 16px 0 0;"></div>
+        <div class="service-icon">🧵</div>
+        <div class="service-name">Etsy Shop Management</div>
+        <div class="service-desc">Product listings, SEO tags, shop branding, Etsy Ads management, and review strategy.</div>
+        <a class="service-link" href="https://wa.me/923334038991?text=Hi, I am interested in Etsy Shop Management" target="_blank">Book This Service <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal reveal-delay-1" onclick="window.open('https://wa.me/923334038991?text=Hi, I am interested in eBay Account Management','_blank')">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#E53238;border-radius:16px 16px 0 0;"></div>
+        <div class="service-icon">🏷️</div>
+        <div class="service-name">eBay Account Management</div>
+        <div class="service-desc">Listing creation, pricing strategy, feedback management, promotions, and eBay SEO.</div>
+        <a class="service-link" href="https://wa.me/923334038991?text=Hi, I am interested in eBay Account Management" target="_blank">Book This Service <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal reveal-delay-2" onclick="window.open('https://wa.me/923334038991?text=Hi, I am interested in TikTok Shop Management','_blank')">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#FE2C55;border-radius:16px 16px 0 0;"></div>
+        <div class="service-icon">🎵</div>
+        <div class="service-name">TikTok Shop Management</div>
+        <div class="service-desc">Product setup, affiliate outreach, livestream strategy, and TikTok Ads for explosive growth.</div>
+        <a class="service-link" href="https://wa.me/923334038991?text=Hi, I am interested in TikTok Shop Management" target="_blank">Book This Service <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal reveal-delay-3" onclick="window.open('https://wa.me/923334038991?text=Hi, I am interested in Daraz Account Management','_blank')">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#F85C1A;border-radius:16px 16px 0 0;"></div>
+        <div class="service-icon">🛒</div>
+        <div class="service-name">Daraz Account Management</div>
+        <div class="service-desc">Full Daraz seller account handling for South Asian markets, campaigns, and Flash Sales.</div>
+        <a class="service-link" href="https://wa.me/923334038991?text=Hi, I am interested in Daraz Account Management" target="_blank">Book This Service <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal reveal-delay-1" onclick="window.open('https://wa.me/923334038991?text=Hi, I am interested in Walmart Marketplace Management','_blank')">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#007DC6;border-radius:16px 16px 0 0;"></div>
+        <div class="service-icon">🏪</div>
+        <div class="service-name">Walmart Marketplace</div>
+        <div class="service-desc">Listings, Buy Box strategy, fulfillment, and Walmart Connect Ads for US market dominance.</div>
+        <a class="service-link" href="https://wa.me/923334038991?text=Hi, I am interested in Walmart Marketplace Management" target="_blank">Book This Service <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal reveal-delay-2" onclick="window.open('https://wa.me/923334038991?text=Hi, I am interested in PPC Ads Management','_blank')">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#E8A838;border-radius:16px 16px 0 0;"></div>
+        <div class="service-icon">📊</div>
+        <div class="service-name">PPC & Sponsored Ads</div>
+        <div class="service-desc">Amazon Sponsored Products/Brands, ACoS optimization, bidding strategy, and profit-first scaling.</div>
+        <a class="service-link" href="https://wa.me/923334038991?text=Hi, I am interested in PPC Ads Management" target="_blank">Book This Service <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal reveal-delay-3" onclick="window.open('https://wa.me/923334038991?text=Hi, I am interested in Listing SEO Optimization','_blank')">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#7B35FF;border-radius:16px 16px 0 0;"></div>
+        <div class="service-icon">🔍</div>
+        <div class="service-name">Listing & SEO Optimization</div>
+        <div class="service-desc">Keyword research, A+ content, bullet points, backend search terms, and conversion-optimized copy.</div>
+        <a class="service-link" href="https://wa.me/923334038991?text=Hi, I am interested in Listing SEO Optimization" target="_blank">Book This Service <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card featured reveal reveal-delay-1" onclick="window.open('https://wa.me/923334038991?text=Hi, I am interested in the Commission-Based Partnership model','_blank')">
+        <div class="service-badge">Most Popular</div>
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#7B35FF,#E8A838);border-radius:16px 16px 0 0;"></div>
+        <div class="service-icon">💰</div>
+        <div class="service-name">Commission-Based Partnership</div>
+        <div class="service-desc">Zero upfront fees. We grow your store and take a % of revenue we generate. Pure performance — your success is our income.</div>
+        <a class="service-link" href="https://wa.me/923334038991?text=Hi, I am interested in the Commission-Based Partnership model" target="_blank" style="color:var(--gold);">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
+  <div class="section-inner">
+    <div class="eyebrow reveal" style="text-align:center;">The Process</div>
+    <h2 class="section-title reveal reveal-delay-1" style="text-align:center;">From Zero to Growing<br>— In 3 Steps.</h2>
+    <div class="steps-grid" style="margin-top:56px;">
+      <div class="step-card reveal reveal-delay-1">
+        <div class="step-num">1</div>
+        <div class="step-icon">📋</div>
+        <div class="step-title">Free Store Audit</div>
+        <div class="step-desc">Book a free consultation via WhatsApp. We audit your marketplace presence, identify gaps, and show you exactly where revenue is being left on the table.</div>
+      </div>
+      <div class="step-card reveal reveal-delay-2">
+        <div class="step-num">2</div>
+        <div class="step-icon">🤝</div>
+        <div class="step-title">We Agree on a Model</div>
+        <div class="step-desc">Choose fixed monthly management or pure commission-based. We sign a clear agreement. You keep full account ownership — we just run the operations.</div>
+      </div>
+      <div class="step-card reveal reveal-delay-3">
+        <div class="step-num">3</div>
+        <div class="step-icon">📈</div>
+        <div class="step-title">We Grow. You Profit.</div>
+        <div class="step-desc">Our team takes over. Listings go live, ads start running, sales climb. Get monthly reports and watch revenue grow — without lifting a finger.</div>
+      </div>
+    </div>
+    <div class="steps-cta reveal reveal-delay-2">
+      <a href="https://wa.me/923334038991?text=Hi, I want a free store audit" target="_blank" class="btn-primary" style="display:inline-flex;"><i class="fab fa-whatsapp"></i> Book Your Free Audit</a>
+    </div>
+  </div>
+</section>
+
+<!-- COMMISSION -->
+<section id="commission">
+  <div class="section-inner">
+    <div class="commission-grid">
+      <div class="commission-text">
+        <div class="eyebrow reveal">Our Edge</div>
+        <h2 class="section-title reveal reveal-delay-1">No Budget?<br>No Problem.</h2>
+        <p class="reveal reveal-delay-2">Most agencies charge $500–$2000/month regardless of results. We don't. On our commission model, you pay <strong>zero upfront</strong>. We earn only when your store earns.</p>
+        <p class="reveal reveal-delay-2">Our incentives are perfectly aligned with yours — the harder we work, the more we both make. This is the model that changed everything for our clients.</p>
+        <ul class="commission-features reveal reveal-delay-3">
+          <li><i class="fas fa-check-circle"></i> No monthly retainer fees</li>
+          <li><i class="fas fa-check-circle"></i> You retain 100% account ownership</li>
+          <li><i class="fas fa-check-circle"></i> We earn % of revenue we generate</li>
+          <li><i class="fas fa-check-circle"></i> Monthly transparent reporting</li>
+          <li><i class="fas fa-check-circle"></i> Cancel anytime — no lock-in</li>
+          <li><i class="fas fa-check-circle"></i> Available for Amazon, Etsy & eBay</li>
+        </ul>
+        <div style="margin-top:32px;" class="reveal reveal-delay-3">
+          <a href="https://wa.me/923334038991?text=Hi, I am interested in the commission-based partnership model" target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> Get Started on Commission</a>
+        </div>
+      </div>
+      <div class="calc-card reveal reveal-delay-2">
+        <div class="calc-title">Example Commission Breakdown</div>
+        <div class="calc-row">
+          <span class="label">Your store before us</span>
+          <span class="val">$2,000/mo</span>
+        </div>
+        <div class="calc-row">
+          <span class="label">After our management</span>
+          <span class="val">$8,500/mo</span>
+        </div>
+        <div class="calc-row">
+          <span class="label">Our commission (15%)</span>
+          <span class="val">$1,275/mo</span>
+        </div>
+        <div class="calc-row highlight">
+          <span class="label">💰 Your net gain</span>
+          <span class="val">+$5,225/mo</span>
+        </div>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:16px;line-height:1.6;">*Example figures. Actual results vary. Schedule a free audit to get projections specific to your store.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="eyebrow reveal" style="text-align:center;">Client Results</div>
+    <h2 class="section-title reveal reveal-delay-1" style="text-align:center;">Real Stores. Real Growth.</h2>
+    <div class="testi-carousel reveal reveal-delay-2" style="margin-top:48px;">
+      <div class="testi-track" id="testiTrack">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-result">+425% Revenue</div>
+          <div class="testi-quote">"They took over my Amazon account completely. Within 3 months my monthly revenue went from $800 to $4,200. Best decision I've made for my business."</div>
+          <div class="testi-author">Ahmed R. 🇵🇰</div>
+          <div class="testi-role">Amazon FBA Seller</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-result">+280% Monthly Sales</div>
+          <div class="testi-quote">"I had no idea how to run Etsy ads. KhaneComboosterLLC handled everything — now my shop runs itself and I just ship the orders. Life-changing."</div>
+          <div class="testi-author">Sarah M. 🇬🇧</div>
+          <div class="testi-role">Etsy Shop Owner</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-result">$6K+ Monthly Increase</div>
+          <div class="testi-quote">"Commission model was a game changer. Zero risk, huge upside. They grew my eBay store by $6,000 per month in just 60 days. Unbelievable results."</div>
+          <div class="testi-author">James K. 🇺🇸</div>
+          <div class="testi-role">eBay Power Seller</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-result">$10K First Month</div>
+          <div class="testi-quote">"TikTok Shop felt impossible to crack. Their team set everything up, found affiliates, and we hit $10K our very first month. Absolutely unreal performance."</div>
+          <div class="testi-author">Fatima N. 🇸🇦</div>
+          <div class="testi-role">TikTok Shop Seller</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-result">+190% Profit Margin</div>
+          <div class="testi-quote">"Professional, fast, and fully transparent. Monthly reports show exactly where every dollar goes. I've worked with other agencies — none come close to this level."</div>
+          <div class="testi-author">Daniel W. 🇦🇺</div>
+          <div class="testi-role">Amazon FBM Seller</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-result">2 Platforms, 3x Revenue</div>
+          <div class="testi-quote">"They manage my Amazon AND Etsy simultaneously. It's like having a full e-commerce team for a fraction of the cost. Revenue tripled in 5 months."</div>
+          <div class="testi-author">Usman T. 🇦🇪</div>
+          <div class="testi-role">Multi-Platform Seller</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-controls">
+      <button class="testi-btn" onclick="testiPrev()"><i class="fas fa-arrow-left"></i></button>
+      <div class="testi-dots" id="testiDots"></div>
+      <button class="testi-btn" onclick="testiNext()"><i class="fas fa-arrow-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="eyebrow reveal" style="text-align:center;">Common Questions</div>
+    <h2 class="section-title reveal reveal-delay-1" style="text-align:center;">Everything You<br>Want to Know.</h2>
+    <div class="faq-list" style="margin-top:48px;">
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">How does the commission model work exactly?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>We manage your marketplace account and earn a percentage (typically 10–20%) of the revenue we generate for you. You pay nothing upfront. We invoice monthly based on results only.</p></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-q" onclick="toggleFaq(this)">Do I keep ownership of my account?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Yes, always. You own 100% of your seller account. We operate it with your permission as a manager. You can revoke access at any time — no questions asked.</p></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-q" onclick="toggleFaq(this)">Which platforms do you manage?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Amazon FBA/FBM, Etsy, eBay, TikTok Shop, Daraz, and Walmart. Multi-platform management is available and often recommended for maximum revenue diversification.</p></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-q" onclick="toggleFaq(this)">How long before I see results?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Most clients see measurable improvement within 30–60 days. Full optimization with compounding results typically shows at the 90-day mark, depending on platform and product niche.</p></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-q" onclick="toggleFaq(this)">Is there a minimum store size requirement?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>No. We work with brand new stores AND established accounts doing $50K+/month. Commission model clients just need an active product or idea to start.</p></div>
+      </div>
+      <div class="faq-item reveal reveal-delay-3">
+        <button class="faq-q" onclick="toggleFaq(this)">What does "full account management" include?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Product listings, SEO optimization, PPC ads, pricing strategy, inventory management, customer service, brand protection, A+ content, and monthly performance reporting. Everything.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking">
+  <div class="section-inner">
+    <div class="booking-hero-card reveal">
+      <h3>Book a Free Store Audit.</h3>
+      <p>No pitch. No pressure. We look at your store for free, tell you what's broken, and show you what we'd do. Takes 30 minutes.</p>
+      <a href="https://wa.me/923334038991?text=Hi, I want a free store audit from KhaneComboosterLLC" target="_blank" class="btn-white"><i class="fab fa-whatsapp" style="color:#25D366;"></i> Talk to Us on WhatsApp</a>
+    </div>
+    <div class="booking-grid-label reveal">Or book a specific service:</div>
+    <div class="booking-grid reveal">
+      <a class="booking-item" href="https://wa.me/923334038991?text=Hi, I need Amazon FBA Management" target="_blank"><span class="bi">📦</span><span>Amazon FBA</span></a>
+      <a class="booking-item" href="https://wa.me/923334038991?text=Hi, I need Amazon FBM Management" target="_blank"><span class="bi">🏭</span><span>Amazon FBM</span></a>
+      <a class="booking-item" href="https://wa.me/923334038991?text=Hi, I need Etsy Management" target="_blank"><span class="bi">🧵</span><span>Etsy Shop</span></a>
+      <a class="booking-item" href="https://wa.me/923334038991?text=Hi, I need eBay Management" target="_blank"><span class="bi">🏷️</span><span>eBay</span></a>
+      <a class="booking-item" href="https://wa.me/923334038991?text=Hi, I need TikTok Shop Management" target="_blank"><span class="bi">🎵</span><span>TikTok Shop</span></a>
+      <a class="booking-item" href="https://wa.me/923334038991?text=Hi, I need Daraz Management" target="_blank"><span class="bi">🛒</span><span>Daraz</span></a>
+      <a class="booking-item" href="https://wa.me/923334038991?text=Hi, I need Walmart Management" target="_blank"><span class="bi">🏪</span><span>Walmart</span></a>
+      <a class="booking-item" href="https://wa.me/923334038991?text=Hi, I need PPC Ads Management" target="_blank"><span class="bi">📊</span><span>PPC Ads</span></a>
+      <a class="booking-item" href="https://wa.me/923334038991?text=Hi, I need Listing SEO Optimization" target="_blank"><span class="bi">🔍</span><span>Listing SEO</span></a>
+      <a class="booking-item" href="https://wa.me/923334038991?text=Hi, I am interested in Commission Partnership" target="_blank" style="border-color:rgba(232,168,56,0.3);"><span class="bi">💰</span><span>Commission Deal</span></a>
+    </div>
+    <div class="booking-email reveal">Prefer email? <a href="mailto:khanecomboosterllc@gmail.com">khanecomboosterllc@gmail.com</a></div>
+  </div>
+</section>
+
+<!-- GLOBAL -->
+<section id="global">
+  <div class="section-inner">
+    <div class="eyebrow reveal" style="text-align:center;">Our Reach</div>
+    <h2 class="section-title reveal reveal-delay-1" style="text-align:center;">One Agency.<br>Every Market.</h2>
+    <p class="section-sub reveal reveal-delay-2" style="margin:0 auto 48px;text-align:center;">Remote-first agency. Serving clients across 30+ countries from a single dedicated team.</p>
+    <div class="map-wrap reveal">
+      <svg class="world-svg" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1000" height="500" fill="none"/>
+        <!-- Simplified continent shapes -->
+        <!-- North America -->
+        <path d="M80 120 L200 80 L260 100 L280 160 L250 200 L220 240 L180 280 L140 260 L100 200 Z" fill="#7B35FF" opacity="0.3" stroke="#7B35FF" stroke-width="1"/>
+        <!-- South America -->
+        <path d="M200 280 L260 270 L280 320 L270 400 L230 430 L200 410 L190 360 L195 310 Z" fill="#7B35FF" opacity="0.3" stroke="#7B35FF" stroke-width="1"/>
+        <!-- Europe -->
+        <path d="M440 80 L520 70 L540 100 L530 140 L490 150 L450 140 L430 120 Z" fill="#7B35FF" opacity="0.3" stroke="#7B35FF" stroke-width="1"/>
+        <!-- Africa -->
+        <path d="M450 160 L520 150 L550 200 L540 300 L500 340 L460 300 L440 240 L440 190 Z" fill="#7B35FF" opacity="0.3" stroke="#7B35FF" stroke-width="1"/>
+        <!-- Asia -->
+        <path d="M540 60 L800 50 L850 120 L820 200 L750 220 L650 200 L580 180 L550 140 L530 100 Z" fill="#7B35FF" opacity="0.3" stroke="#7B35FF" stroke-width="1"/>
+        <!-- South Asia sub -->
+        <path d="M640 200 L700 200 L710 260 L670 280 L640 250 Z" fill="#9D5FFF" opacity="0.4"/>
+        <!-- Australia -->
+        <path d="M780 300 L880 280 L900 360 L860 400 L800 390 L770 340 Z" fill="#7B35FF" opacity="0.3" stroke="#7B35FF" stroke-width="1"/>
+      </svg>
+      <!-- Pulse dots positioned on map -->
+      <div class="pulse-dot" style="top:28%;left:14%;animation-delay:0s;"></div>
+      <div class="pulse-dot" style="top:18%;left:47%;animation-delay:0.5s;"></div>
+      <div class="pulse-dot" style="top:42%;left:64%;animation-delay:1s;"></div>
+      <div class="pulse-dot" style="top:30%;left:72%;animation-delay:1.5s;"></div>
+      <div class="pulse-dot" style="top:22%;left:82%;animation-delay:0.8s;"></div>
+      <div class="pulse-dot" style="top:68%;left:80%;animation-delay:1.2s;"></div>
+      <div class="pulse-dot" style="top:55%;left:18%;animation-delay:0.3s;"></div>
+    </div>
+    <div class="global-stats reveal">
+      <div class="g-pill">🌎 <span>30+</span> Countries</div>
+      <div class="g-pill">📦 <span>150+</span> Active Stores</div>
+      <div class="g-pill">🕐 <span>24/7</span> Support</div>
+      <div class="g-pill">💱 <span>Multi-Currency</span></div>
+      <div class="g-pill">📊 <span>Monthly</span> Reporting</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="eyebrow reveal" style="text-align:center;">Connect</div>
+    <h2 class="section-title reveal reveal-delay-1" style="text-align:center;">Let's Build Something<br>Together.</h2>
+    <div class="contact-grid" style="margin-top:56px;">
+      <div>
+        <div class="contact-card reveal">
+          <div class="contact-card-top">
+            <div class="contact-icon wa"><i class="fab fa-whatsapp"></i></div>
+            <div>
+              <div class="contact-label">WhatsApp (Fastest)</div>
+              <div class="contact-val">+92 333 4038991</div>
+            </div>
+          </div>
+          <div class="contact-note">💬 Replies within 1 hour</div>
+          <a href="https://wa.me/923334038991" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Open WhatsApp</a>
+        </div>
+        <div class="contact-card reveal reveal-delay-1">
+          <div class="contact-card-top">
+            <div class="contact-icon em"><i class="fas fa-envelope"></i></div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-val" style="font-size:14px;">khanecomboosterllc@gmail.com</div>
+            </div>
+          </div>
+          <div class="contact-note">📧 Replies within 24 hours</div>
+          <a href="mailto:khanecomboosterllc@gmail.com" class="btn-em"><i class="fas fa-envelope"></i> Send Email</a>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="social-title">Follow Our Journey</div>
+        <div class="social-grid">
+          <a href="#" class="social-icon si-fb"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
+          <a href="#" class="social-icon si-ig"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+          <a href="#" class="social-icon si-tk"><i class="fab fa-tiktok"></i><span>TikTok</span></a>
+          <a href="#" class="social-icon si-yt"><i class="fab fa-youtube"></i><span>YouTube</span></a>
+          <a href="#" class="social-icon si-li"><i class="fab fa-linkedin-in"></i><span>LinkedIn</span></a>
+          <a href="#" class="social-icon si-tw"><i class="fab fa-x-twitter"></i><span>Twitter/X</span></a>
+          <a href="#" class="social-icon si-pi"><i class="fab fa-pinterest-p"></i><span>Pinterest</span></a>
+          <a href="#" class="social-icon si-sc"><i class="fab fa-snapchat-ghost"></i><span>Snapchat</span></a>
+          <a href="#" class="social-icon si-th"><i class="fab fa-threads"></i><span>Threads</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">KhaneCombo<span>Booster</span>LLC</div>
+        <div class="footer-tagline">We Manage. You Profit.</div>
+        <div class="footer-contact-line"><i class="fab fa-whatsapp" style="color:#25D366;"></i><a href="https://wa.me/923334038991" target="_blank">+92 333 4038991</a></div>
+        <div class="footer-contact-line"><i class="fas fa-envelope" style="color:var(--violet);"></i><a href="mailto:khanecomboosterllc@gmail.com">khanecomboosterllc@gmail.com</a></div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#commission">Commission Model</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#booking">Book Now</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Platforms</h4>
+        <ul class="footer-links">
+          <li><a href="#">Amazon FBA / FBM</a></li>
+          <li><a href="#">Etsy</a></li>
+          <li><a href="#">eBay</a></li>
+          <li><a href="#">TikTok Shop</a></li>
+          <li><a href="#">Daraz</a></li>
+          <li><a href="#">Walmart</a></li>
+          <li><a href="#">PPC Ads</a></li>
+          <li><a href="#">Listing SEO</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 KhaneComboosterLLC. All Rights Reserved. Made for global commerce.</div>
+      <div class="footer-socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/923334038991?text=Hi, I want to discuss my store with KhaneComboosterLLC" target="_blank" class="wa-float" aria-label="WhatsApp">
+  <div class="wa-ring"></div>
+  <i class="fab fa-whatsapp"></i>
+  <span class="wa-tooltip">Chat on WhatsApp</span>
+</a>
+
+<!-- BACK TO TOP -->
+<a href="#home" id="back-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+
+<script>
+// PRELOADER
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const pre = document.getElementById('preloader');
+    pre.style.opacity = '0';
+    pre.style.transition = 'opacity 0.5s ease';
+    setTimeout(() => { pre.style.display = 'none'; }, 500);
+  }, 1600);
+});
+
+// SCROLL PROGRESS
+window.addEventListener('scroll', () => {
+  const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('scroll-progress').style.width = scrolled + '%';
+});
+
+// NAV
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+  const bt = document.getElementById('back-top');
+  bt.classList.toggle('visible', window.scrollY > window.innerHeight * 0.4);
+});
+
+// HAMBURGER
+const ham = document.getElementById('ham');
+const mobileMenu = document.getElementById('mobileMenu');
+ham.addEventListener('click', () => {
+  ham.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+function closeMob() {
+  ham.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// TICKER — live revenue counter
+let tickerVal = 4823491;
+const tickerEl = document.getElementById('ticker');
+function fmtTicker(n) {
+  return '$' + n.toLocaleString('en-US');
+}
+tickerEl.textContent = fmtTicker(tickerVal);
+setInterval(() => {
+  tickerVal += Math.floor(Math.random() * 17) + 5;
+  tickerEl.textContent = fmtTicker(tickerVal);
+}, 90);
+
+// SCROLL REVEAL
+const reveals = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(r => revealObs.observe(r));
+
+// STAT COUNTER
+const statNums = document.querySelectorAll('.stat-num[data-target]');
+const statObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const target = parseInt(el.dataset.target);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '+';
+      let current = 0;
+      const step = target / 60;
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = prefix + Math.floor(current) + suffix;
+        if (current >= target) clearInterval(timer);
+      }, 25);
+      statObs.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+statNums.forEach(n => statObs.observe(n));
+
+// TESTIMONIAL CAROUSEL
+const track = document.getElementById('testiTrack');
+const cards = track.querySelectorAll('.testi-card');
+const dotsContainer = document.getElementById('testiDots');
+let currentSlide = 0;
+let slidesVisible = window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+
+function updateSlides() {
+  slidesVisible = window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+  const maxSlide = cards.length - slidesVisible;
+  if (currentSlide > maxSlide) currentSlide = maxSlide;
+  const cardW = cards[0].getBoundingClientRect().width;
+  const gap = 24;
+  track.style.transform = `translateX(-${currentSlide * (cardW + gap)}px)`;
+  dotsContainer.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+}
+
+// Build dots
+const totalDots = cards.length - slidesVisible + 1 < 1 ? 1 : cards.length - (window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3) + 1;
+for (let i = 0; i < Math.max(cards.length - 2, 1); i++) {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.onclick = () => { currentSlide = i; updateSlides(); };
+  dotsContainer.appendChild(d);
+}
+
+function testiNext() {
+  const maxSlide = cards.length - slidesVisible;
+  currentSlide = currentSlide >= maxSlide ? 0 : currentSlide + 1;
+  updateSlides();
+}
+function testiPrev() {
+  const maxSlide = cards.length - slidesVisible;
+  currentSlide = currentSlide <= 0 ? maxSlide : currentSlide - 1;
+  updateSlides();
+}
+window.testiNext = testiNext;
+window.testiPrev = testiPrev;
+
+let autoTesti = setInterval(testiNext, 5000);
+track.addEventListener('mouseenter', () => clearInterval(autoTesti));
+track.addEventListener('mouseleave', () => { autoTesti = setInterval(testiNext, 5000); });
+
+window.addEventListener('resize', () => {
+  slidesVisible = window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+  updateSlides();
+});
+
+// Touch swipe for testimonials
+let touchStartX = 0;
+track.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+track.addEventListener('touchend', e => {
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 40) { diff > 0 ? testiNext() : testiPrev(); }
+}, { passive: true });
+
+// FAQ
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+window.toggleFaq = toggleFaq;
+</script>
+</body>
+</html>
