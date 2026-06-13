@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>Trainings — Khan Ecom Booster LLC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
@@ -25,14 +28,23 @@
       --gold: #C2882A;
       --gold-soft: #FDF7EF;
       --green-wa: #25D366;
-      --shadow-sm: 0 2px 8px rgba(0,0,0,0.02);
-      --shadow-md: 0 8px 24px rgba(0,0,0,0.04);
-      --shadow-lg: 0 16px 40px rgba(0,0,0,0.05);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.04);
+      --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.05);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; overflow-x: hidden; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
 
     body {
       background: var(--pure-white);
@@ -44,84 +56,189 @@
       line-height: 1.6;
     }
 
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--off-white); }
-    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 6px; }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--off-white);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 6px;
+    }
 
     /* NAV */
     nav {
-      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
       padding: 22px 40px;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       transition: all 0.35s ease;
-      background: rgba(255,255,255,0.88);
+      background: rgba(255, 255, 255, 0.88);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid transparent;
     }
+
     nav.scrolled {
-      background: rgba(255,255,255,0.96);
+      background: rgba(255, 255, 255, 0.96);
       border-bottom: 1px solid var(--border-light);
       box-shadow: var(--shadow-sm);
       padding: 14px 40px;
     }
+
     .nav-logo {
       font-family: 'Playfair Display', serif;
-      font-weight: 700; font-size: 22px;
-      white-space: nowrap; text-decoration: none;
-      color: var(--text-primary); flex-shrink: 0;
+      font-weight: 700;
+      font-size: 22px;
+      white-space: nowrap;
+      text-decoration: none;
+      color: var(--text-primary);
+      flex-shrink: 0;
       letter-spacing: -0.3px;
     }
-    .nav-logo span.accent { color: var(--accent); }
-    .nav-logo span.muted { color: var(--text-muted); font-size: 14px; font-weight: 500; }
-    .nav-links { display: flex; gap: 34px; list-style: none; }
-    .nav-links a {
-      color: var(--text-secondary); text-decoration: none;
-      font-size: 14px; font-weight: 500;
-      position: relative; transition: color 0.25s;
+
+    .nav-logo span.accent {
+      color: var(--accent);
     }
+
+    .nav-logo span.muted {
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 34px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.25s;
+    }
+
     .nav-links a::after {
-      content: ''; position: absolute; bottom: -5px; left: 0;
-      width: 0; height: 2px; background: var(--accent);
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
       transition: width 0.25s ease;
     }
-    .nav-links a:hover { color: var(--accent); }
-    .nav-links a:hover::after { width: 100%; }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
     .nav-cta {
-      background: var(--accent); color: #fff; text-decoration: none;
-      padding: 11px 22px; border-radius: 30px; font-size: 14px; font-weight: 600;
-      transition: all 0.25s; white-space: nowrap; flex-shrink: 0;
-      box-shadow: 0 4px 14px rgba(240,92,47,0.22);
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 11px 22px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.25s;
+      white-space: nowrap;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(240, 92, 47, 0.22);
     }
-    .nav-cta:hover { background: var(--accent-glow); box-shadow: 0 8px 22px rgba(240,92,47,0.32); transform: translateY(-1px); }
+
+    .nav-cta:hover {
+      background: var(--accent-glow);
+      box-shadow: 0 8px 22px rgba(240, 92, 47, 0.32);
+      transform: translateY(-1px);
+    }
+
     .hamburger {
-      display: none; flex-direction: column; gap: 5px; cursor: pointer;
-      background: none; border: none; padding: 4px;
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
     }
+
     .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: var(--text-primary); border-radius: 2px;
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
       transition: all 0.3s ease;
     }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-menu {
-      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-      background: rgba(255,255,255,0.97); backdrop-filter: blur(20px);
-      z-index: 999; flex-direction: column; align-items: center;
-      justify-content: center; gap: 32px;
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
     }
-    .mobile-menu.open { display: flex; }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
     .mobile-menu a {
-      color: var(--text-primary); text-decoration: none;
-      font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 600;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 600;
       transition: color 0.2s;
     }
-    .mobile-menu a:hover { color: var(--accent); }
+
+    .mobile-menu a:hover {
+      color: var(--accent);
+    }
+
     .mobile-menu .m-cta {
-      background: var(--accent); padding: 14px 36px; border-radius: 30px;
-      font-size: 18px; color: #fff;
+      background: var(--accent);
+      padding: 14px 36px;
+      border-radius: 30px;
+      font-size: 18px;
+      color: #fff;
     }
 
     /* MAIN CONTENT */
@@ -142,11 +259,16 @@
       text-align: center;
       border-bottom: 1px solid var(--border-light);
     }
+
     .page-eyebrow {
-      font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
       margin-bottom: 12px;
     }
+
     .page-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(36px, 5vw, 64px);
@@ -154,6 +276,7 @@
       line-height: 1.12;
       margin-bottom: 16px;
     }
+
     .page-subtitle {
       font-size: 18px;
       color: var(--text-muted);
@@ -168,6 +291,7 @@
       gap: 24px;
       margin-bottom: 40px;
     }
+
     .course-meta-item {
       background: #fff;
       border: 1px solid var(--border);
@@ -180,6 +304,7 @@
       color: var(--text-secondary);
       box-shadow: var(--shadow-sm);
     }
+
     .course-meta-item i {
       font-size: 20px;
       color: var(--accent);
@@ -191,6 +316,7 @@
       align-items: center;
       justify-content: center;
     }
+
     .price-tag {
       font-family: 'Playfair Display', serif;
       font-size: 36px;
@@ -198,31 +324,60 @@
       color: var(--accent);
       margin: 24px 0 28px;
     }
+
     .btn-primary {
-      background: var(--accent); color: #fff;
-      padding: 16px 36px; border-radius: 30px;
-      font-size: 16px; font-weight: 600;
-      text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
+      background: var(--accent);
+      color: #fff;
+      padding: 16px 36px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       transition: all 0.25s;
-      box-shadow: 0 8px 22px rgba(240,92,47,0.24);
+      box-shadow: 0 8px 22px rgba(240, 92, 47, 0.24);
     }
-    .btn-primary:hover { background: var(--accent-glow); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(240,92,47,0.34); }
+
+    .btn-primary:hover {
+      background: var(--accent-glow);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(240, 92, 47, 0.34);
+    }
+
     .btn-ghost {
-      color: var(--text-primary); border: 1px solid var(--border);
-      padding: 16px 36px; border-radius: 30px;
-      font-size: 16px; font-weight: 500;
-      text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
-      transition: all 0.25s; background: #fff;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      padding: 16px 36px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.25s;
+      background: #fff;
       margin-left: 12px;
     }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
 
-    .why-section, .modules-section, .faq-section {
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .why-section,
+    .modules-section,
+    .faq-section {
       padding: 80px 0;
     }
+
     .why-section {
       background: #fff;
     }
+
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(28px, 4vw, 48px);
@@ -230,12 +385,14 @@
       margin-bottom: 20px;
       text-align: center;
     }
+
     .why-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       margin-top: 48px;
     }
+
     .why-card {
       background: var(--off-white);
       border: 1px solid var(--border);
@@ -244,21 +401,25 @@
       text-align: center;
       transition: all 0.3s;
     }
+
     .why-card:hover {
       transform: translateY(-4px);
       border-color: var(--accent);
       box-shadow: var(--shadow-md);
     }
+
     .why-card i {
       font-size: 32px;
       color: var(--accent);
       margin-bottom: 16px;
     }
+
     .why-card h4 {
       font-family: 'Playfair Display', serif;
       font-size: 20px;
       margin-bottom: 10px;
     }
+
     .why-card p {
       color: var(--text-muted);
       font-size: 14px;
@@ -268,6 +429,7 @@
     .modules-section {
       background: var(--off-white);
     }
+
     .module-block {
       background: #fff;
       border: 1px solid var(--border);
@@ -276,6 +438,7 @@
       margin-bottom: 24px;
       box-shadow: var(--shadow-sm);
     }
+
     .module-block h3 {
       font-family: 'Playfair Display', serif;
       font-size: 22px;
@@ -286,12 +449,14 @@
       align-items: center;
       gap: 10px;
     }
+
     .module-block ul {
       list-style: none;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 10px 24px;
     }
+
     .module-block ul li {
       font-size: 14px;
       color: var(--text-secondary);
@@ -301,6 +466,7 @@
       align-items: baseline;
       gap: 8px;
     }
+
     .module-block ul li::before {
       content: "▹";
       color: var(--accent);
@@ -310,6 +476,7 @@
     .faq-section {
       background: #fff;
     }
+
     .faq-list {
       max-width: 800px;
       margin: 48px auto 0;
@@ -317,33 +484,64 @@
       flex-direction: column;
       gap: 12px;
     }
+
     .faq-item {
       background: var(--off-white);
       border: 1px solid var(--border);
       border-radius: 14px;
       overflow: hidden;
     }
+
     .faq-item.open {
-      border-color: rgba(240,92,47,0.4);
+      border-color: rgba(240, 92, 47, 0.4);
       border-left: 3px solid var(--accent);
     }
+
     .faq-q {
-      width: 100%; background: none; border: none;
-      padding: 18px 24px; cursor: pointer;
-      display: flex; justify-content: space-between; align-items: center;
-      text-align: left; color: var(--text-primary);
-      font-size: 15px; font-weight: 600; font-family: 'Inter', sans-serif;
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 18px 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      color: var(--text-primary);
+      font-size: 15px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
       gap: 16px;
     }
-    .faq-icon { flex-shrink: 0; color: var(--accent); transition: transform 0.3s; font-size: 14px; }
-    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    .faq-icon {
+      flex-shrink: 0;
+      color: var(--accent);
+      transition: transform 0.3s;
+      font-size: 14px;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
     .faq-a {
-      max-height: 0; overflow: hidden;
+      max-height: 0;
+      overflow: hidden;
       transition: max-height 0.35s ease, padding 0.3s ease;
       padding: 0 24px;
     }
-    .faq-item.open .faq-a { max-height: 300px; padding: 0 24px 20px; }
-    .faq-a p { color: var(--text-muted); font-size: 14px; line-height: 1.75; }
+
+    .faq-item.open .faq-a {
+      max-height: 300px;
+      padding: 0 24px 20px;
+    }
+
+    .faq-a p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
 
     .disclaimer {
       text-align: center;
@@ -359,369 +557,525 @@
       border-top: 1px solid var(--border-light);
       padding: 60px 40px 30px;
     }
-    .footer-inner { max-width: 1200px; margin: 0 auto; }
-    .footer-top {
-      display: grid; grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 60px; margin-bottom: 48px;
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
     }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 48px;
+    }
+
     .footer-brand-name {
       font-family: 'Playfair Display', serif;
-      font-size: 22px; font-weight: 700;
+      font-size: 22px;
+      font-weight: 700;
       margin-bottom: 10px;
     }
-    .footer-brand-name span { color: var(--accent); }
-    .footer-tagline { color: var(--text-muted); font-size: 14px; margin-bottom: 20px; }
-    .footer-contact-line {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 13px; color: var(--text-muted); margin-bottom: 8px;
+
+    .footer-brand-name span {
+      color: var(--accent);
     }
-    .footer-contact-line a { color: var(--text-muted); text-decoration: none; }
-    .footer-contact-line a:hover { color: var(--accent); }
+
+    .footer-tagline {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .footer-contact-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .footer-contact-line a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-contact-line a:hover {
+      color: var(--accent);
+    }
+
     .footer-col h4 {
       font-family: 'Playfair Display', serif;
-      font-size: 14px; font-weight: 700;
-      margin-bottom: 18px; color: var(--text-primary);
-      letter-spacing: 0.04em; text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: var(--text-primary);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
-    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
     .footer-links a {
-      color: var(--text-muted); text-decoration: none;
-      font-size: 14px; transition: color 0.2s;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
     }
-    .footer-links a:hover { color: var(--accent); }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
     .footer-bottom {
       border-top: 1px solid var(--border-light);
       padding-top: 24px;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
     }
-    .footer-copy { font-size: 13px; color: var(--text-muted); }
-    .footer-socials { display: flex; gap: 12px; }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+    }
+
     .footer-socials a {
-      width: 36px; height: 36px; border-radius: 10px;
-      background: #fff; border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text-muted); font-size: 14px; text-decoration: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 14px;
+      text-decoration: none;
       transition: all 0.2s;
     }
-    .footer-socials a:hover { border-color: var(--accent); color: var(--accent); }
+
+    .footer-socials a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
 
     /* FLOATING WHATSAPP */
     .wa-float {
-      position: fixed; bottom: 28px; right: 28px; z-index: 9999;
-      width: 60px; height: 60px; border-radius: 50%;
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9999;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
       background: var(--green-wa);
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; font-size: 26px; text-decoration: none;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 26px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
       transition: all 0.25s;
     }
-    .wa-float:hover { transform: scale(1.08); }
+
+    .wa-float:hover {
+      transform: scale(1.08);
+    }
 
     @media (max-width: 1024px) {
-      nav { padding: 18px 24px; }
-      .nav-links, .nav-cta { display: none; }
-      .hamburger { display: flex; }
-      .why-grid { grid-template-columns: repeat(2, 1fr); }
-      .module-block ul { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+      nav {
+        padding: 18px 24px;
+      }
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .module-block ul {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
     }
+
     @media (max-width: 640px) {
-      .why-grid { grid-template-columns: 1fr; }
-      .course-meta-grid { flex-direction: column; align-items: center; }
-      .btn-ghost { margin-left: 0; margin-top: 12px; }
-      .footer-top { grid-template-columns: 1fr; }
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .course-meta-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-ghost {
+        margin-left: 0;
+        margin-top: 12px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav id="navbar">
-  <a href="index.html" class="nav-logo">Khan Ecom<span class="accent">Booster</span><span class="muted"> LLC</span></a>
-  <ul class="nav-links">
-    <li><a href="index.html#home">Home</a></li>
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="index.html#services">Services</a></li>
-    <li><a href="index.html#how-it-works">Process</a></li>
-    <li><a href="Trainings.html" style="color:var(--accent);">Trainings</a></li>
-    <li><a href="index.html#booking">Book</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
-  </ul>
-  <a href="https://wa.me/923334038991?text=Hi, I want to enroll in the Walmart Freelancing Course" class="nav-cta" target="_blank">Apply Now →</a>
-  <button class="hamburger" id="ham" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">Khan Ecom<span class="accent">Booster</span><span class="muted">
+        LLC</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#how-it-works">Process</a></li>
+      <li><a href="Trainings.html" style="color:var(--accent);">Trainings</a></li>
+      <li><a href="index.html#booking">Book</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/923334038991?text=Hi, I want to enroll in the Walmart Freelancing Course" class="nav-cta"
+      target="_blank">Apply Now →</a>
+    <button class="hamburger" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html" onclick="closeMob()">Home</a>
-  <a href="index.html#about" onclick="closeMob()">About</a>
-  <a href="index.html#services" onclick="closeMob()">Services</a>
-  <a href="Trainings.html" onclick="closeMob()">Trainings</a>
-  <a href="index.html#booking" onclick="closeMob()">Book</a>
-  <a href="index.html#contact" onclick="closeMob()">Contact</a>
-  <a href="https://wa.me/923334038991?text=Hi, I want to enroll in the Walmart Freelancing Course" class="m-cta" target="_blank">Apply Now →</a>
-</div>
-
-<main>
-  <!-- PAGE HERO -->
-  <section class="page-hero">
-    <div class="section-inner">
-      <div class="page-eyebrow">Khan Ecom Booster LLC — Training Program</div>
-      <h1 class="page-title">Become a Freelancer on Walmart with AI</h1>
-      <p class="page-subtitle">Master Private Label & Wholesale on Walmart Marketplace. A comprehensive, hands-on program designed to turn you into a high-demand Walmart freelancer.</p>
-      <div class="course-meta-grid">
-        <div class="course-meta-item"><i class="fas fa-calendar-alt"></i> Starting From <strong>Jun 14, 2026</strong></div>
-        <div class="course-meta-item"><i class="fas fa-clock"></i> Duration: <strong>2 Months</strong></div>
-        <div class="course-meta-item"><i class="fas fa-laptop-house"></i> Mode: <strong>Online & On Campus</strong></div>
-        <div class="course-meta-item"><i class="fas fa-calendar-check"></i> Class: <strong>Saturday or Sunday</strong></div>
-      </div>
-      <div class="price-tag">24,999 PKR</div>
-      <div style="margin-bottom: 16px;">
-        <a href="https://wa.me/923334038991?text=Hi, I want to apply for the Walmart Freelancing Course" target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> Apply Now</a>
-        <a href="#modules" class="btn-ghost"><i class="fas fa-book-open"></i> View Curriculum</a>
-      </div>
-      <p style="font-size:14px; color:var(--text-muted); margin-top: 12px;">✅ 2 Months Course with Additional 1 Year Support &nbsp;|&nbsp; ✅ Trainer Support through Bootcamp Group &nbsp;|&nbsp; ✅ Private Community Access</p>
-      <p class="disclaimer">*Khan Ecom Booster LLC reserves the right to change dates and schedules as per operational needs.</p>
-    </div>
-  </section>
-
-  <!-- WHY JOIN -->
-  <section class="why-section">
-    <div class="section-inner">
-      <h2 class="section-title">Why You Should Join This Program</h2>
-      <p style="text-align:center; max-width:700px; margin:0 auto 20px; color:var(--text-muted);">Working as a freelancer on Walmart lets you tap into one of the world's largest retail platforms, offering massive exposure and consistent project demand.</p>
-      <div class="why-grid">
-        <div class="why-card">
-          <i class="fas fa-briefcase"></i>
-          <h4>Real-World Tools</h4>
-          <p>Gain practical experience using AI-driven tools like Helium 10, DeepSeek, and Dataspark to hunt and validate products.</p>
-        </div>
-        <div class="why-card">
-          <i class="fas fa-headset"></i>
-          <h4>1-Year Ongoing Support</h4>
-          <p>You're never alone. Access our expert community and trainer support for a full year after the course ends.</p>
-        </div>
-        <div class="why-card">
-          <i class="fas fa-rocket"></i>
-          <h4>Kickstart Your Career</h4>
-          <p>Build a strong portfolio, learn to pitch on Fiverr & Upwork, and help brands grow their presence on Walmart.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MODULES -->
-  <section class="modules-section" id="modules">
-    <div class="section-inner">
-      <h2 class="section-title">Module Breakdown</h2>
-
-      <div class="module-block">
-        <h3><span>📘</span> Introduction to Ecommerce & Walmart</h3>
-        <ul>
-          <li>What is Ecommerce & Types of Ecommerce</li>
-          <li>What is Walmart Marketplace</li>
-          <li>Business Models on Walmart</li>
-          <li>Walmart Fulfillment Channels (WFS vs Self)</li>
-          <li>Working as a Seller vs Freelancer on Walmart</li>
-        </ul>
-      </div>
-
-      <div class="module-block">
-        <h3><span>🔍</span> Walmart Private Label Product Hunting & Sourcing</h3>
-        <ul>
-          <li>Overview of Private Labeling on Walmart</li>
-          <li>Elements of Product Research & Validation</li>
-          <li>Using AI Tools (Helium 10 Launchpad) for Evaluation</li>
-          <li>Product Hunting PL Criteria</li>
-          <li>Sourcing & Product Development for Private Label</li>
-          <li>Patent and Trademark Registration</li>
-          <li>Finding High-Quality Suppliers Worldwide</li>
-          <li>Vetting Manufacturers & Negotiating Contracts</li>
-          <li>Product Development Lifecycle: Concept to Shelf</li>
-          <li>Branding Essentials & Packaging Compliance</li>
-          <li>Sample Ordering, Consolidation & Pre-Shipping Inspection</li>
-        </ul>
-      </div>
-
-      <div class="module-block">
-        <h3><span>🚀</span> Product Launch & Listing Optimization</h3>
-        <ul>
-          <li>Ranking Products on Page ONE for High-Traffic Keywords</li>
-          <li>Keyword Research & Walmart SEO Strategies</li>
-          <li>Social Media Marketing (Facebook, Twitter, YouTube)</li>
-          <li>Walmart Sponsored Ads (PPC) Campaigns</li>
-          <li>Pricing Strategies & Review Management</li>
-          <li>Planning a Successful Launch (EWR Strategy)</li>
-          <li>Monitoring & Adjusting Listings Post-Launch</li>
-        </ul>
-      </div>
-
-      <div class="module-block">
-        <h3><span>📦</span> Wholesale Model, Product Hunting & Sourcing</h3>
-        <ul>
-          <li>Overview of the Wholesale Model on Walmart</li>
-          <li>WS Product Hunting Strategies (With & Without Tools)</li>
-          <li>Finding Suppliers Through Brands, Google & Directories</li>
-          <li>Using AI (DeepSeek) & Google Map Approach</li>
-          <li>Account Setup with Suppliers & Long-Term Partnerships</li>
-          <li>Product Analysis & Demand Forecasting (Dataspark)</li>
-          <li>Placing Orders & Inventory Management Best Practices</li>
-          <li>Brand Research Reports using AI (ChatGPT)</li>
-          <li>Zoom Meetings with Company Decision Makers</li>
-          <li>Advanced Brand Exclusivity Techniques</li>
-        </ul>
-      </div>
-
-      <div class="module-block">
-        <h3><span>⚙️</span> Walmart Interface, Order Fulfillment & Customer Service</h3>
-        <ul>
-          <li>In-Depth Walmart Seller Interface Overview</li>
-          <li>Price Management & WFS vs Self-Fulfillment</li>
-          <li>Managing Returns & Customer Inquiries</li>
-          <li>Ensuring Compliance with Walmart Service Standards</li>
-          <li>Profit Calculations</li>
-        </ul>
-      </div>
-
-      <div class="module-block">
-        <h3><span>🗣️</span> Effective Communication & Presentation Skills</h3>
-        <ul>
-          <li>Fundamentals of Business Communication</li>
-          <li>Structuring & Delivering Persuasive Presentations</li>
-          <li>Techniques for Engaging & Persuading Your Audience</li>
-        </ul>
-      </div>
-
-      <div class="module-block">
-        <h3><span>💼</span> Freelancing on LinkedIn, Fiverr & Upwork</h3>
-        <ul>
-          <li>Account Registration on Freelancing Platforms</li>
-          <li>Creating Gigs & Keyword Research for Ranking</li>
-          <li>Portfolio Creation & Bidding Strategies</li>
-          <li>Proposal Submissions & Finding the Right Jobs</li>
-          <li>LinkedIn Profile Generator using AI</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="faq-section">
-    <div class="section-inner">
-      <h2 class="section-title">Frequently Asked Questions</h2>
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">What is Walmart Marketplace?<span class="faq-icon">+</span></button>
-          <div class="faq-a"><p>Walmart Marketplace is a platform allowing third-party sellers to list and sell products alongside Walmart's own inventory, reaching millions of customers.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">What is the duration of this course?<span class="faq-icon">+</span></button>
-          <div class="faq-a"><p>The core training lasts 2 months, supplemented with an additional 1 year of community and trainer support.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">What is the course fee?<span class="faq-icon">+</span></button>
-          <div class="faq-a"><p>The total investment for the program is 24,999 PKR.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">What mode of training is offered?<span class="faq-icon">+</span></button>
-          <div class="faq-a"><p>We offer both Online and On Campus training. Classes are held on Saturdays or Sundays.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Are installment plans available?<span class="faq-icon">+</span></button>
-          <div class="faq-a"><p>Please contact our team via WhatsApp to discuss available payment options and installment plans.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">What are the main business models on Walmart?<span class="faq-icon">+</span></button>
-          <div class="faq-a"><p>The primary models covered are Private Label (building your own brand) and Wholesale (reselling established brands), along with freelancing services for both.</p></div>
-        </div>
-      </div>
-      <div style="text-align:center; margin-top:40px;">
-        <a href="https://wa.me/923334038991?text=Hi, I have a question about the Walmart Freelancing Course" target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> Ask a Question on WhatsApp</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand-name">Khan Ecom<span>Booster</span> LLC</div>
-        <div class="footer-tagline">We Manage. You Profit.</div>
-        <div class="footer-contact-line"><i class="fab fa-whatsapp" style="color:#25D366;"></i><a href="https://wa.me/923334038991" target="_blank">+92 333 4038991</a></div>
-        <div class="footer-contact-line"><i class="fas fa-envelope" style="color:var(--accent);"></i><a href="mailto:khanecomboosterllc@gmail.com">khanecomboosterllc@gmail.com</a></div>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <ul class="footer-links">
-          <li><a href="index.html#home">Home</a></li>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="Trainings.html">Trainings</a></li>
-          <li><a href="index.html#booking">Book Now</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Platforms</h4>
-        <ul class="footer-links">
-          <li><a href="#">Amazon FBA / FBM</a></li>
-          <li><a href="#">Etsy</a></li>
-          <li><a href="#">eBay</a></li>
-          <li><a href="#">TikTok Shop</a></li>
-          <li><a href="#">Walmart</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2025 Khan Ecom Booster LLC. All Rights Reserved.</div>
-      <div class="footer-socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-tiktok"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
-    </div>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="closeMob()">Home</a>
+    <a href="index.html#about" onclick="closeMob()">About</a>
+    <a href="index.html#services" onclick="closeMob()">Services</a>
+    <a href="Trainings.html" onclick="closeMob()">Trainings</a>
+    <a href="index.html#booking" onclick="closeMob()">Book</a>
+    <a href="index.html#contact" onclick="closeMob()">Contact</a>
+    <a href="https://wa.me/923334038991?text=Hi, I want to enroll in the Walmart Freelancing Course" class="m-cta"
+      target="_blank">Apply Now →</a>
   </div>
-</footer>
 
-<!-- FLOATING WHATSAPP -->
-<a href="https://wa.me/923334038991?text=Hi, I want to discuss the Walmart Freelancing Course" target="_blank" class="wa-float" aria-label="WhatsApp">
-  <i class="fab fa-whatsapp"></i>
-</a>
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="section-inner">
+        <div class="page-eyebrow">Khan Ecom Booster LLC — Training Program</div>
+        <h1 class="page-title">Become a Freelancer on Walmart with AI</h1>
+        <p class="page-subtitle">Master Private Label & Wholesale on Walmart Marketplace. A comprehensive, hands-on
+          program designed to turn you into a high-demand Walmart freelancer.</p>
+        <div class="course-meta-grid">
+          <div class="course-meta-item"><i class="fas fa-calendar-alt"></i> Starting From <strong>Jun 14, 2026</strong>
+          </div>
+          <div class="course-meta-item"><i class="fas fa-clock"></i> Duration: <strong>2 Months</strong></div>
+          <div class="course-meta-item"><i class="fas fa-laptop-house"></i> Mode: <strong>Online & On Campus</strong>
+          </div>
+          <div class="course-meta-item"><i class="fas fa-calendar-check"></i> Class: <strong>Saturday or Sunday</strong>
+          </div>
+        </div>
+        <div class="price-tag">400</div>
+        <div style="margin-bottom: 16px;">
+          <a href="https://wa.me/923334038991?text=Hi, I want to apply for the Walmart Freelancing Course"
+            target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> Apply Now</a>
+          <a href="#modules" class="btn-ghost"><i class="fas fa-book-open"></i> View Curriculum</a>
+        </div>
+        <p style="font-size:14px; color:var(--text-muted); margin-top: 12px;">✅ 2 Months Course with Additional 1 Year
+          Support &nbsp;|&nbsp; ✅ Trainer Support through Bootcamp Group &nbsp;|&nbsp; ✅ Private Community Access</p>
+        <p class="disclaimer">*Khan Ecom Booster LLC reserves the right to change dates and schedules as per operational
+          needs.</p>
+      </div>
+    </section>
 
-<script>
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
-  });
+    <!-- WHY JOIN -->
+    <section class="why-section">
+      <div class="section-inner">
+        <h2 class="section-title">Why You Should Join This Program</h2>
+        <p style="text-align:center; max-width:700px; margin:0 auto 20px; color:var(--text-muted);">Working as a
+          freelancer on Walmart lets you tap into one of the world's largest retail platforms, offering massive exposure
+          and consistent project demand.</p>
+        <div class="why-grid">
+          <div class="why-card">
+            <i class="fas fa-briefcase"></i>
+            <h4>Real-World Tools</h4>
+            <p>Gain practical experience using AI-driven tools like Helium 10, DeepSeek, and Dataspark to hunt and
+              validate products.</p>
+          </div>
+          <div class="why-card">
+            <i class="fas fa-headset"></i>
+            <h4>1-Year Ongoing Support</h4>
+            <p>You're never alone. Access our expert community and trainer support for a full year after the course
+              ends.</p>
+          </div>
+          <div class="why-card">
+            <i class="fas fa-rocket"></i>
+            <h4>Kickstart Your Career</h4>
+            <p>Build a strong portfolio, learn to pitch on Fiverr & Upwork, and help brands grow their presence on
+              Walmart.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  const ham = document.getElementById('ham');
-  const mobileMenu = document.getElementById('mobileMenu');
-  ham.addEventListener('click', () => {
-    ham.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-  });
-  function closeMob() {
-    ham.classList.remove('open');
-    mobileMenu.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  window.closeMob = closeMob;
+    <!-- MODULES -->
+    <section class="modules-section" id="modules">
+      <div class="section-inner">
+        <h2 class="section-title">Module Breakdown</h2>
 
-  function toggleFaq(btn) {
-    const item = btn.parentElement;
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  }
-  window.toggleFaq = toggleFaq;
-</script>
+        <div class="module-block">
+          <h3><span>📘</span> Introduction to Ecommerce & Walmart</h3>
+          <ul>
+            <li>What is Ecommerce & Types of Ecommerce</li>
+            <li>What is Walmart Marketplace</li>
+            <li>Business Models on Walmart</li>
+            <li>Walmart Fulfillment Channels (WFS vs Self)</li>
+            <li>Working as a Seller vs Freelancer on Walmart</li>
+          </ul>
+        </div>
+
+        <div class="module-block">
+          <h3><span>🔍</span> Walmart Private Label Product Hunting & Sourcing</h3>
+          <ul>
+            <li>Overview of Private Labeling on Walmart</li>
+            <li>Elements of Product Research & Validation</li>
+            <li>Using AI Tools (Helium 10 Launchpad) for Evaluation</li>
+            <li>Product Hunting PL Criteria</li>
+            <li>Sourcing & Product Development for Private Label</li>
+            <li>Patent and Trademark Registration</li>
+            <li>Finding High-Quality Suppliers Worldwide</li>
+            <li>Vetting Manufacturers & Negotiating Contracts</li>
+            <li>Product Development Lifecycle: Concept to Shelf</li>
+            <li>Branding Essentials & Packaging Compliance</li>
+            <li>Sample Ordering, Consolidation & Pre-Shipping Inspection</li>
+          </ul>
+        </div>
+
+        <div class="module-block">
+          <h3><span>🚀</span> Product Launch & Listing Optimization</h3>
+          <ul>
+            <li>Ranking Products on Page ONE for High-Traffic Keywords</li>
+            <li>Keyword Research & Walmart SEO Strategies</li>
+            <li>Social Media Marketing (Facebook, Twitter, YouTube)</li>
+            <li>Walmart Sponsored Ads (PPC) Campaigns</li>
+            <li>Pricing Strategies & Review Management</li>
+            <li>Planning a Successful Launch (EWR Strategy)</li>
+            <li>Monitoring & Adjusting Listings Post-Launch</li>
+          </ul>
+        </div>
+
+        <div class="module-block">
+          <h3><span>📦</span> Wholesale Model, Product Hunting & Sourcing</h3>
+          <ul>
+            <li>Overview of the Wholesale Model on Walmart</li>
+            <li>WS Product Hunting Strategies (With & Without Tools)</li>
+            <li>Finding Suppliers Through Brands, Google & Directories</li>
+            <li>Using AI (DeepSeek) & Google Map Approach</li>
+            <li>Account Setup with Suppliers & Long-Term Partnerships</li>
+            <li>Product Analysis & Demand Forecasting (Dataspark)</li>
+            <li>Placing Orders & Inventory Management Best Practices</li>
+            <li>Brand Research Reports using AI (ChatGPT)</li>
+            <li>Zoom Meetings with Company Decision Makers</li>
+            <li>Advanced Brand Exclusivity Techniques</li>
+          </ul>
+        </div>
+
+        <div class="module-block">
+          <h3><span>⚙️</span> Walmart Interface, Order Fulfillment & Customer Service</h3>
+          <ul>
+            <li>In-Depth Walmart Seller Interface Overview</li>
+            <li>Price Management & WFS vs Self-Fulfillment</li>
+            <li>Managing Returns & Customer Inquiries</li>
+            <li>Ensuring Compliance with Walmart Service Standards</li>
+            <li>Profit Calculations</li>
+          </ul>
+        </div>
+
+        <div class="module-block">
+          <h3><span>🗣️</span> Effective Communication & Presentation Skills</h3>
+          <ul>
+            <li>Fundamentals of Business Communication</li>
+            <li>Structuring & Delivering Persuasive Presentations</li>
+            <li>Techniques for Engaging & Persuading Your Audience</li>
+          </ul>
+        </div>
+
+        <div class="module-block">
+          <h3><span>💼</span> Freelancing on LinkedIn, Fiverr & Upwork</h3>
+          <ul>
+            <li>Account Registration on Freelancing Platforms</li>
+            <li>Creating Gigs & Keyword Research for Ranking</li>
+            <li>Portfolio Creation & Bidding Strategies</li>
+            <li>Proposal Submissions & Finding the Right Jobs</li>
+            <li>LinkedIn Profile Generator using AI</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="section-inner">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">What is Walmart Marketplace?<span
+                class="faq-icon">+</span></button>
+            <div class="faq-a">
+              <p>Walmart Marketplace is a platform allowing third-party sellers to list and sell products alongside
+                Walmart's own inventory, reaching millions of customers.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">What is the duration of this course?<span
+                class="faq-icon">+</span></button>
+            <div class="faq-a">
+              <p>The core training lasts 2 months, supplemented with an additional 1 year of community and trainer
+                support.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">What is the course fee?<span
+                class="faq-icon">+</span></button>
+            <div class="faq-a">
+              <p>The total investment for the program is 24,999 PKR.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">What mode of training is offered?<span
+                class="faq-icon">+</span></button>
+            <div class="faq-a">
+              <p>We offer both Online and On Campus training. Classes are held on Saturdays or Sundays.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Are installment plans available?<span
+                class="faq-icon">+</span></button>
+            <div class="faq-a">
+              <p>Please contact our team via WhatsApp to discuss available payment options and installment plans.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">What are the main business models on Walmart?<span
+                class="faq-icon">+</span></button>
+            <div class="faq-a">
+              <p>The primary models covered are Private Label (building your own brand) and Wholesale (reselling
+                established brands), along with freelancing services for both.</p>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top:40px;">
+          <a href="https://wa.me/923334038991?text=Hi, I have a question about the Walmart Freelancing Course"
+            target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> Ask a Question on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Khan Ecom<span>Booster</span> LLC</div>
+          <div class="footer-tagline">We Manage. You Profit.</div>
+          <div class="footer-contact-line"><i class="fab fa-whatsapp" style="color:#25D366;"></i><a
+              href="https://wa.me/923334038991" target="_blank">+92 333 4038991</a></div>
+          <div class="footer-contact-line"><i class="fas fa-envelope" style="color:var(--accent);"></i><a
+              href="mailto:khanecomboosterllc@gmail.com">khanecomboosterllc@gmail.com</a></div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="Trainings.html">Trainings</a></li>
+            <li><a href="index.html#booking">Book Now</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Platforms</h4>
+          <ul class="footer-links">
+            <li><a href="#">Amazon FBA / FBM</a></li>
+            <li><a href="#">Etsy</a></li>
+            <li><a href="#">eBay</a></li>
+            <li><a href="#">TikTok Shop</a></li>
+            <li><a href="#">Walmart</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2025 Khan Ecom Booster LLC. All Rights Reserved.</div>
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/923334038991?text=Hi, I want to discuss the Walmart Freelancing Course" target="_blank"
+    class="wa-float" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    const ham = document.getElementById('ham');
+    const mobileMenu = document.getElementById('mobileMenu');
+    ham.addEventListener('click', () => {
+      ham.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+    function closeMob() {
+      ham.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    window.closeMob = closeMob;
+
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+    window.toggleFaq = toggleFaq;
+  </script>
 </body>
+
 </html>

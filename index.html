@@ -506,6 +506,16 @@
       box-shadow: var(--shadow-sm);
       animation: floatBadge 6s ease-in-out infinite;
       color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .market-badge img {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      object-fit: contain;
     }
 
     .market-badge:nth-child(3) {
@@ -547,6 +557,13 @@
       bottom: 25%;
       left: 5%;
       animation-delay: 1.5s;
+      border-color: rgba(0, 125, 198, 0.4);
+    }
+
+    .market-badge:nth-child(9) {
+      top: 50%;
+      left: 80%;
+      animation-delay: 2.5s;
       border-color: rgba(0, 125, 198, 0.4);
     }
 
@@ -818,6 +835,13 @@
     .service-icon {
       font-size: 30px;
       margin-bottom: 16px;
+    }
+
+    .service-icon-img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      margin-bottom: 12px;
     }
 
     .service-name {
@@ -1286,16 +1310,16 @@
       display: block;
     }
 
-    .booking-item:hover {
-      border-color: var(--accent);
-      background: var(--accent-soft);
-      transform: translateY(-3px);
-    }
-
     .booking-item .bi {
       font-size: 24px;
       margin-bottom: 8px;
       display: block;
+    }
+
+    .booking-item img {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 6px;
     }
 
     .booking-item span {
@@ -1831,8 +1855,7 @@
     .reveal {
       opacity: 0;
       transform: translateY(28px);
-      transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .reveal.visible {
@@ -1911,7 +1934,7 @@
       }
     }
 
-    /* ===================== RESPONSIVE ===================== */
+    /* RESPONSIVE */
     @media (max-width: 1024px) {
       nav {
         padding: 18px 24px;
@@ -1921,10 +1944,7 @@
         padding: 12px 24px;
       }
 
-      .nav-links {
-        display: none;
-      }
-
+      .nav-links,
       .nav-cta {
         display: none;
       }
@@ -1959,10 +1979,7 @@
         gap: 48px;
       }
 
-      .stat-card:nth-child(2) {
-        margin-left: 0;
-      }
-
+      .stat-card:nth-child(2),
       .stat-card:nth-child(3) {
         margin-left: 0;
       }
@@ -2111,21 +2128,130 @@
         transform: none;
       }
     }
+
+
+    /* CSS for Result Images (after testimonials) - Khan Ecom Booster LLC */
+
+    .result-images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 48px;
+      padding: 0 20px;
+    }
+
+    .result-img-card {
+      flex: 1;
+      min-width: 280px;
+      max-width: 400px;
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      border: 1px solid var(--border, #E5E0DA);
+    }
+
+    .result-img-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      border-color: var(--accent, #F05C2F);
+    }
+
+    .result-img-card a {
+      display: block;
+      text-decoration: none;
+    }
+
+    .result-img-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .result-img-card:hover img {
+      transform: scale(1.02);
+    }
+
+    /* Optional: Add a subtle overlay effect on hover */
+    .result-img-card {
+      position: relative;
+    }
+
+    .result-img-card::after {
+      content: "🔍 Click to enlarge";
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      color: white;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 20px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .result-img-card:hover::after {
+      opacity: 1;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .result-images {
+        gap: 20px;
+        margin-top: 36px;
+      }
+
+      .result-img-card {
+        min-width: 240px;
+        max-width: 100%;
+      }
+
+      .result-img-card::after {
+        font-size: 10px;
+        padding: 3px 8px;
+        bottom: 8px;
+        right: 8px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .result-images {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .result-img-card {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+
+    /* Optional: Light mode / dark mode friendly - keeps your existing vars */
+    .result-img-card {
+      background: var(--pure-white, #FFFFFF);
+      border-color: var(--border, #E5E0DA);
+    }
   </style>
 </head>
 
 <body>
-
   <div id="preloader">
     <div class="pre-logo">Khan Ecom<span>Booster</span> LLC</div>
     <div class="pre-bar">
       <div class="pre-bar-fill"></div>
     </div>
   </div>
-
   <div id="scroll-progress"></div>
 
-  <!-- NAV -->
   <nav id="navbar">
     <a href="#home" class="nav-logo">Khan Ecom<span class="accent">Booster</span><span class="muted"> LLC</span></a>
     <ul class="nav-links">
@@ -2136,30 +2262,27 @@
       <li><a href="#testimonials">Results</a></li>
       <li><a href="#booking">Book</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="./Trainings.html">Trainings</a></li>
+      <li><a href="./Trainings.html" class="nav-trainings">Trainings →</a></li>
     </ul>
     <a href="https://wa.me/923334038991?text=Hi, I want a free store audit" class="nav-cta" target="_blank">Free Audit
       →</a>
-    <button class="hamburger" id="ham" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
   </nav>
 
-  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#home" onclick="closeMob()">Home</a>
     <a href="#about" onclick="closeMob()">About</a>
     <a href="#services" onclick="closeMob()">Services</a>
     <a href="#how-it-works" onclick="closeMob()">Process</a>
-    <a href="#commission" onclick="closeMob()">Commission</a>
     <a href="#testimonials" onclick="closeMob()">Results</a>
     <a href="#booking" onclick="closeMob()">Book</a>
     <a href="#contact" onclick="closeMob()">Contact</a>
+    <a href="./Trainings.html" class="m-training">Trainings →</a>
     <a href="https://wa.me/923334038991?text=Hi, I want a free store audit" class="m-cta" target="_blank">Free Audit
       →</a>
   </div>
 
-  <!-- HERO -->
+  <!-- HERO SECTION -->
   <section id="home">
     <div class="hero-bg">
       <div class="orb orb-1"></div>
@@ -2173,36 +2296,43 @@
         <h1 class="hero-headline">We Run Your<br>Store. You Keep<br><span class="hl">The Profits.</span></h1>
         <p class="hero-sub">Khan Ecom Booster LLC manages your Amazon, Etsy, eBay & TikTok Shop accounts end-to-end. We
           earn on commission — you only pay when you win.</p>
-        <div class="hero-btns">
-          <a href="https://wa.me/923334038991?text=Hi, I want a free store audit from Khan Ecom Booster LLC"
-            target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> Start Free on WhatsApp</a>
-          <a href="#services" class="btn-ghost">Explore Services <i class="fas fa-arrow-down"></i></a>
-        </div>
+        <div class="hero-btns"><a href="https://wa.me/923334038991?text=Hi, I want a free store audit" target="_blank"
+            class="btn-primary"><i class="fab fa-whatsapp"></i> Start Free on WhatsApp</a><a href="#services"
+            class="btn-ghost">Explore Services <i class="fas fa-arrow-down"></i></a></div>
       </div>
       <div class="hero-visual">
         <div class="orbit-ring ring-1"></div>
         <div class="orbit-ring ring-2"></div>
         <div class="orbit-ring ring-3"></div>
         <div class="orbit-center">Khan Ecom<br>Booster<br>LLC</div>
-        <div class="market-badge">🛒 Amazon</div>
-        <div class="market-badge">🧵 Etsy</div>
-        <div class="market-badge">🏷️ eBay</div>
-        <div class="market-badge">🎵 TikTok Shop</div>
-        <div class="market-badge">📦 Daraz</div>
-        <div class="market-badge">🏪 Walmart</div>
+        <div class="market-badge"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxwUGMThSMYygZoRtiJEmrL-06o0HboKs5IdnHgn73Sg&s=10"
+            alt="amazon"> Amazon</div>
+        <div class="market-badge"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcN_rXmYvQlrzvcG4vGfinYPhy1jgPzoYy1-UG4JLTtw&s=10"
+            alt="etsy"> Etsy</div>
+        <div class="market-badge"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG-WE-ryeMyJl94y1P5GaaOgUcp4EBil37zteKm-dx1w&s=10"
+            alt="ebay"> eBay</div>
+        <div class="market-badge"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4dhnhjZI-zL2oxii-FpCWSP-0Nt4g1ObZwg&s"
+            alt="tiktok"> TikTok</div>
+        <div class="market-badge"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKmIMrkc1Q8_CPFu2vo0GuCtMHaffe0iY1tw&s"
+            alt="daraz"> Daraz</div>
+        <div class="market-badge"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMIWRFhAKXElD1Ks7U-5g3fqA77uuY9p4ydA&s"
+            alt="walmart"> Walmart</div>
       </div>
     </div>
-    <div class="scroll-arrow">
-      <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;">Scroll</span>
-      <i class="fas fa-chevron-down"></i>
-    </div>
+    <div class="scroll-arrow"><span>Scroll</span><i class="fas fa-chevron-down"></i></div>
   </section>
 
   <!-- TRUST BAR -->
   <div class="trust-bar">
-    <div class="trust-track" id="trustTrack">
+    <div class="trust-track">
       <div class="trust-item">⭐ <span>150+ Stores Managed</span></div>
-      <div class="trust-item">🌍 <span>30+ Countries</span></div>
+      <div class="trust-item">🌍 <span>10+ Countries</span></div>
       <div class="trust-item">💰 Commission Model Available</div>
       <div class="trust-item">⚡ <span>Amazon FBA Specialists</span></div>
       <div class="trust-item">🛍 Etsy · eBay · TikTok Shop</div>
@@ -2210,7 +2340,7 @@
       <div class="trust-item">✅ Full Account Management</div>
       <div class="trust-item">🔒 Brand Protection Included</div>
       <div class="trust-item">⭐ <span>150+ Stores Managed</span></div>
-      <div class="trust-item">🌍 <span>30+ Countries</span></div>
+      <div class="trust-item">🌍 <span>10+ Countries</span></div>
       <div class="trust-item">💰 Commission Model Available</div>
       <div class="trust-item">⚡ <span>Amazon FBA Specialists</span></div>
       <div class="trust-item">🛍 Etsy · eBay · TikTok Shop</div>
@@ -2266,128 +2396,125 @@
       <p class="section-sub reveal reveal-delay-2">Pick your platform — we take over and grow it. End-to-end account
         management with proven results.</p>
       <div class="services-grid">
-        <div class="service-card reveal reveal-delay-1" style="--top-c:#FF9900;"
+        <div class="service-card reveal reveal-delay-1"
           onclick="window.open('https://wa.me/923334038991?text=Hi, I am interested in Amazon FBA Management','_blank')">
-          <div
-            style="position:absolute;top:0;left:0;right:0;height:3px;background:#FF9900;border-radius:20px 20px 0 0;">
-          </div>
-          <div class="service-icon">📦</div>
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#FF9900;"></div><img
+            class="service-icon-img"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxwUGMThSMYygZoRtiJEmrL-06o0HboKs5IdnHgn73Sg&s=10"
+            alt="amazon">
           <div class="service-name">Amazon FBA Management</div>
           <div class="service-desc">Full FBA setup, listing optimization, PPC ads, inventory management, and account
-            health monitoring.</div>
-          <a class="service-link" href="https://wa.me/923334038991?text=Hi, I am interested in Amazon FBA Management"
-            target="_blank">Book This Service <i class="fas fa-arrow-right"></i></a>
+            health monitoring.</div><a class="service-link"
+            href="https://wa.me/923334038991?text=Hi, I am interested in Amazon FBA Management" target="_blank">Book
+            This Service <i class="fas fa-arrow-right"></i></a>
         </div>
-        <div class="service-card reveal reveal-delay-2" style="--top-c:#FF9900;"
+        <div class="service-card reveal reveal-delay-2"
           onclick="window.open('https://wa.me/923334038991?text=Hi, I am interested in Amazon FBM Management','_blank')">
-          <div
-            style="position:absolute;top:0;left:0;right:0;height:3px;background:#FF9900;border-radius:20px 20px 0 0;">
-          </div>
-          <div class="service-icon">🏭</div>
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#FF9900;"></div><img
+            class="service-icon-img"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxwUGMThSMYygZoRtiJEmrL-06o0HboKs5IdnHgn73Sg&s=10"
+            alt="amazon">
           <div class="service-name">Amazon FBM Management</div>
           <div class="service-desc">Merchant-fulfilled operations, inventory control, shipping coordination, and return
-            management.</div>
-          <a class="service-link" href="https://wa.me/923334038991?text=Hi, I am interested in Amazon FBM Management"
-            target="_blank">Book This Service <i class="fas fa-arrow-right"></i></a>
+            management.</div><a class="service-link"
+            href="https://wa.me/923334038991?text=Hi, I am interested in Amazon FBM Management" target="_blank">Book
+            This Service <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="service-card reveal reveal-delay-3"
           onclick="window.open('https://wa.me/923334038991?text=Hi, I am interested in Etsy Shop Management','_blank')">
-          <div
-            style="position:absolute;top:0;left:0;right:0;height:3px;background:#F56400;border-radius:20px 20px 0 0;">
-          </div>
-          <div class="service-icon">🧵</div>
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#F56400;"></div><img
+            class="service-icon-img"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcN_rXmYvQlrzvcG4vGfinYPhy1jgPzoYy1-UG4JLTtw&s=10"
+            alt="etsy">
           <div class="service-name">Etsy Shop Management</div>
           <div class="service-desc">Product listings, SEO tags, shop branding, Etsy Ads management, and review strategy.
-          </div>
-          <a class="service-link" href="https://wa.me/923334038991?text=Hi, I am interested in Etsy Shop Management"
-            target="_blank">Book This Service <i class="fas fa-arrow-right"></i></a>
+          </div><a class="service-link"
+            href="https://wa.me/923334038991?text=Hi, I am interested in Etsy Shop Management" target="_blank">Book This
+            Service <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="service-card reveal reveal-delay-1"
           onclick="window.open('https://wa.me/923334038991?text=Hi, I am interested in eBay Account Management','_blank')">
-          <div
-            style="position:absolute;top:0;left:0;right:0;height:3px;background:#E53238;border-radius:20px 20px 0 0;">
-          </div>
-          <div class="service-icon">🏷️</div>
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#E53238;"></div><img
+            class="service-icon-img"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG-WE-ryeMyJl94y1P5GaaOgUcp4EBil37zteKm-dx1w&s=10"
+            alt="ebay">
           <div class="service-name">eBay Account Management</div>
           <div class="service-desc">Listing creation, pricing strategy, feedback management, promotions, and eBay SEO.
-          </div>
-          <a class="service-link" href="https://wa.me/923334038991?text=Hi, I am interested in eBay Account Management"
-            target="_blank">Book This Service <i class="fas fa-arrow-right"></i></a>
+          </div><a class="service-link"
+            href="https://wa.me/923334038991?text=Hi, I am interested in eBay Account Management" target="_blank">Book
+            This Service <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="service-card reveal reveal-delay-2"
           onclick="window.open('https://wa.me/923334038991?text=Hi, I am interested in TikTok Shop Management','_blank')">
-          <div
-            style="position:absolute;top:0;left:0;right:0;height:3px;background:#FE2C55;border-radius:20px 20px 0 0;">
-          </div>
-          <div class="service-icon">🎵</div>
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#FE2C55;"></div><img
+            class="service-icon-img"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4dhnhjZI-zL2oxii-FpCWSP-0Nt4g1ObZwg&s"
+            alt="tiktok">
           <div class="service-name">TikTok Shop Management</div>
           <div class="service-desc">Product setup, affiliate outreach, livestream strategy, and TikTok Ads for explosive
-            growth.</div>
-          <a class="service-link" href="https://wa.me/923334038991?text=Hi, I am interested in TikTok Shop Management"
-            target="_blank">Book This Service <i class="fas fa-arrow-right"></i></a>
+            growth.</div><a class="service-link"
+            href="https://wa.me/923334038991?text=Hi, I am interested in TikTok Shop Management" target="_blank">Book
+            This Service <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="service-card reveal reveal-delay-3"
           onclick="window.open('https://wa.me/923334038991?text=Hi, I am interested in Daraz Account Management','_blank')">
-          <div
-            style="position:absolute;top:0;left:0;right:0;height:3px;background:#F85C1A;border-radius:20px 20px 0 0;">
-          </div>
-          <div class="service-icon">🛒</div>
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#F85C1A;"></div><img
+            class="service-icon-img"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKmIMrkc1Q8_CPFu2vo0GuCtMHaffe0iY1tw&s"
+            alt="daraz">
           <div class="service-name">Daraz Account Management</div>
           <div class="service-desc">Full Daraz seller account handling for South Asian markets, campaigns, and Flash
-            Sales.</div>
-          <a class="service-link" href="https://wa.me/923334038991?text=Hi, I am interested in Daraz Account Management"
-            target="_blank">Book This Service <i class="fas fa-arrow-right"></i></a>
+            Sales.</div><a class="service-link"
+            href="https://wa.me/923334038991?text=Hi, I am interested in Daraz Account Management" target="_blank">Book
+            This Service <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="service-card reveal reveal-delay-1"
           onclick="window.open('https://wa.me/923334038991?text=Hi, I am interested in Walmart Marketplace Management','_blank')">
-          <div
-            style="position:absolute;top:0;left:0;right:0;height:3px;background:#007DC6;border-radius:20px 20px 0 0;">
-          </div>
-          <div class="service-icon">🏪</div>
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#007DC6;"></div><img
+            class="service-icon-img"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMIWRFhAKXElD1Ks7U-5g3fqA77uuY9p4ydA&s"
+            alt="walmart">
           <div class="service-name">Walmart Marketplace</div>
           <div class="service-desc">Listings, Buy Box strategy, fulfillment, and Walmart Connect Ads for US market
-            dominance.</div>
-          <a class="service-link"
+            dominance.</div><a class="service-link"
             href="https://wa.me/923334038991?text=Hi, I am interested in Walmart Marketplace Management"
             target="_blank">Book This Service <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="service-card reveal reveal-delay-2"
-          onclick="window.open('https://wa.me/923334038991?text=Hi, I am interested in PPC Ads Management','_blank')">
-          <div
-            style="position:absolute;top:0;left:0;right:0;height:3px;background:#E8A838;border-radius:20px 20px 0 0;">
-          </div>
-          <div class="service-icon">📊</div>
-          <div class="service-name">PPC & Sponsored Ads</div>
-          <div class="service-desc">Amazon Sponsored Products/Brands, ACoS optimization, bidding strategy, and
-            profit-first scaling.</div>
-          <a class="service-link" href="https://wa.me/923334038991?text=Hi, I am interested in PPC Ads Management"
-            target="_blank">Book This Service <i class="fas fa-arrow-right"></i></a>
+          onclick="window.open('https://wa.me/923334038991?text=Hi, I need Walmart Seller Approval','_blank')">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#007DC6;"></div><img
+            class="service-icon-img"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMIWRFhAKXElD1Ks7U-5g3fqA77uuY9p4ydA&s"
+            alt="walmart">
+          <div class="service-name">Walmart Seller Approval</div>
+          <div class="service-desc">Expert assistance to get your Walmart seller account approved quickly. We handle
+            application & documentation.</div><a class="service-link"
+            href="https://wa.me/923334038991?text=Hi, I need Walmart Seller Approval" target="_blank">Book This Service
+            <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="service-card reveal reveal-delay-3"
-          onclick="window.open('https://wa.me/923334038991?text=Hi, I am interested in Listing SEO Optimization','_blank')">
-          <div
-            style="position:absolute;top:0;left:0;right:0;height:3px;background:#F05C2F;border-radius:20px 20px 0 0;">
-          </div>
-          <div class="service-icon">🔍</div>
-          <div class="service-name">Listing & SEO Optimization</div>
-          <div class="service-desc">Keyword research, A+ content, bullet points, backend search terms, and
-            conversion-optimized copy.</div>
-          <a class="service-link" href="https://wa.me/923334038991?text=Hi, I am interested in Listing SEO Optimization"
+          onclick="window.open('https://wa.me/923334038991?text=Hi, I need Walmart Reinstatement','_blank')">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#007DC6;"></div><img
+            class="service-icon-img"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMIWRFhAKXElD1Ks7U-5g3fqA77uuY9p4ydA&s"
+            alt="walmart">
+          <div class="service-name">Walmart Reinstatement</div>
+          <div class="service-desc">Suspended? We craft winning appeals and get your Walmart seller account reinstated
+            fast.</div><a class="service-link" href="https://wa.me/923334038991?text=Hi, I need Walmart Reinstatement"
             target="_blank">Book This Service <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="service-card featured reveal reveal-delay-1"
           onclick="window.open('https://wa.me/923334038991?text=Hi, I am interested in the Commission-Based Partnership model','_blank')">
           <div class="service-badge">Most Popular</div>
           <div
-            style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#F05C2F,#C2882A);border-radius:20px 20px 0 0;">
+            style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#F05C2F,#C2882A);">
           </div>
           <div class="service-icon">💰</div>
           <div class="service-name">Commission-Based Partnership</div>
           <div class="service-desc">Zero upfront fees. We grow your store and take a % of revenue we generate. Pure
-            performance — your success is our income.</div>
-          <a class="service-link"
+            performance — your success is our income.</div><a class="service-link"
             href="https://wa.me/923334038991?text=Hi, I am interested in the Commission-Based Partnership model"
-            target="_blank" style="color:var(--accent);">Learn More <i class="fas fa-arrow-right"></i></a>
+            target="_blank">Learn More <i class="fas fa-arrow-right"></i></a>
         </div>
       </div>
     </div>
@@ -2399,7 +2526,7 @@
       <div class="eyebrow reveal" style="text-align:center;">The Process</div>
       <h2 class="section-title reveal reveal-delay-1" style="text-align:center;">From Zero to Growing<br>— In 3 Steps.
       </h2>
-      <div class="steps-grid" style="margin-top:56px;">
+      <div class="steps-grid">
         <div class="step-card reveal reveal-delay-1">
           <div class="step-num">1</div>
           <div class="step-icon">📋</div>
@@ -2422,10 +2549,8 @@
             reports and watch revenue grow — without lifting a finger.</div>
         </div>
       </div>
-      <div class="steps-cta reveal reveal-delay-2">
-        <a href="https://wa.me/923334038991?text=Hi, I want a free store audit" target="_blank" class="btn-primary"
-          style="display:inline-flex;"><i class="fab fa-whatsapp"></i> Book Your Free Audit</a>
-      </div>
+      <div class="steps-cta"><a href="https://wa.me/923334038991?text=Hi, I want a free store audit" target="_blank"
+          class="btn-primary"><i class="fab fa-whatsapp"></i> Book Your Free Audit</a></div>
     </div>
   </section>
 
@@ -2438,52 +2563,36 @@
           <h2 class="section-title reveal reveal-delay-1">No Budget?<br>No Problem.</h2>
           <p class="reveal reveal-delay-2">Most agencies charge $500–$2000/month regardless of results. We don't. On our
             commission model, you pay <strong>zero upfront</strong>. We earn only when your store earns.</p>
-          <p class="reveal reveal-delay-2">Our incentives are perfectly aligned with yours — the harder we work, the
-            more we both make. This is the model that changed everything for our clients.</p>
           <ul class="commission-features reveal reveal-delay-3">
             <li><i class="fas fa-check-circle"></i> No monthly retainer fees</li>
             <li><i class="fas fa-check-circle"></i> You retain 100% account ownership</li>
             <li><i class="fas fa-check-circle"></i> We earn % of revenue we generate</li>
             <li><i class="fas fa-check-circle"></i> Monthly transparent reporting</li>
             <li><i class="fas fa-check-circle"></i> Cancel anytime — no lock-in</li>
-            <li><i class="fas fa-check-circle"></i> Available for Amazon, Etsy & eBay</li>
           </ul>
-          <div style="margin-top:32px;" class="reveal reveal-delay-3">
-            <a href="https://wa.me/923334038991?text=Hi, I am interested in the commission-based partnership model"
-              target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> Get Started on Commission</a>
-          </div>
+          <div style="margin-top:32px;"><a
+              href="https://wa.me/923334038991?text=Hi, I am interested in the commission-based partnership model"
+              target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> Get Started on Commission</a></div>
         </div>
         <div class="calc-card reveal reveal-delay-2">
           <div class="calc-title">Example Commission Breakdown</div>
-          <div class="calc-row">
-            <span class="label">Your store before us</span>
-            <span class="val">$2,000/mo</span>
+          <div class="calc-row"><span class="label">Your store before us</span><span class="val">$2,000/mo</span></div>
+          <div class="calc-row"><span class="label">After our management</span><span class="val">$8,500/mo</span></div>
+          <div class="calc-row"><span class="label">Our commission (15%)</span><span class="val">$1,275/mo</span></div>
+          <div class="calc-row highlight"><span class="label">💰 Your net gain</span><span class="val">+$5,225/mo</span>
           </div>
-          <div class="calc-row">
-            <span class="label">After our management</span>
-            <span class="val">$8,500/mo</span>
-          </div>
-          <div class="calc-row">
-            <span class="label">Our commission (15%)</span>
-            <span class="val">$1,275/mo</span>
-          </div>
-          <div class="calc-row highlight">
-            <span class="label">💰 Your net gain</span>
-            <span class="val">+$5,225/mo</span>
-          </div>
-          <p style="font-size:12px;color:var(--text-muted);margin-top:16px;line-height:1.6;">*Example figures. Actual
-            results vary. Schedule a free audit to get projections specific to your store.</p>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:16px;">*Example figures. Actual results vary.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
+  <!-- TESTIMONIALS & RESULT IMAGES -->
   <section id="testimonials">
     <div class="section-inner">
       <div class="eyebrow reveal" style="text-align:center;">Client Results</div>
       <h2 class="section-title reveal reveal-delay-1" style="text-align:center;">Real Stores. Real Growth.</h2>
-      <div class="testi-carousel reveal reveal-delay-2" style="margin-top:48px;">
+      <div class="testi-carousel reveal reveal-delay-2">
         <div class="testi-track" id="testiTrack">
           <div class="testi-card">
             <div class="testi-stars">★★★★★</div>
@@ -2497,7 +2606,7 @@
             <div class="testi-stars">★★★★★</div>
             <div class="testi-result">+280% Monthly Sales</div>
             <div class="testi-quote">"I had no idea how to run Etsy ads. Khan Ecom Booster handled everything — now my
-              shop runs itself and I just ship the orders. Life-changing."</div>
+              shop runs itself and I just ship the orders."</div>
             <div class="testi-author">Sarah M. 🇬🇧</div>
             <div class="testi-role">Etsy Shop Owner</div>
           </div>
@@ -2505,40 +2614,24 @@
             <div class="testi-stars">★★★★★</div>
             <div class="testi-result">$6K+ Monthly Increase</div>
             <div class="testi-quote">"Commission model was a game changer. Zero risk, huge upside. They grew my eBay
-              store by $6,000 per month in just 60 days. Unbelievable results."</div>
+              store by $6,000 per month in just 60 days."</div>
             <div class="testi-author">James K. 🇺🇸</div>
             <div class="testi-role">eBay Power Seller</div>
           </div>
-          <div class="testi-card">
-            <div class="testi-stars">★★★★★</div>
-            <div class="testi-result">$10K First Month</div>
-            <div class="testi-quote">"TikTok Shop felt impossible to crack. Their team set everything up, found
-              affiliates, and we hit $10K our very first month. Absolutely unreal performance."</div>
-            <div class="testi-author">Fatima N. 🇸🇦</div>
-            <div class="testi-role">TikTok Shop Seller</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">★★★★★</div>
-            <div class="testi-result">+190% Profit Margin</div>
-            <div class="testi-quote">"Professional, fast, and fully transparent. Monthly reports show exactly where
-              every dollar goes. I've worked with other agencies — none come close to this level."</div>
-            <div class="testi-author">Daniel W. 🇦🇺</div>
-            <div class="testi-role">Amazon FBM Seller</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">★★★★★</div>
-            <div class="testi-result">2 Platforms, 3x Revenue</div>
-            <div class="testi-quote">"They manage my Amazon AND Etsy simultaneously. It's like having a full e-commerce
-              team for a fraction of the cost. Revenue tripled in 5 months."</div>
-            <div class="testi-author">Usman T. 🇦🇪</div>
-            <div class="testi-role">Multi-Platform Seller</div>
-          </div>
         </div>
       </div>
-      <div class="testi-controls">
-        <button class="testi-btn" onclick="testiPrev()"><i class="fas fa-arrow-left"></i></button>
-        <div class="testi-dots" id="testiDots"></div>
-        <button class="testi-btn" onclick="testiNext()"><i class="fas fa-arrow-right"></i></button>
+      <div class="testi-controls"><button class="testi-btn" onclick="testiPrev()"><i
+            class="fas fa-arrow-left"></i></button>
+        <div class="testi-dots" id="testiDots"></div><button class="testi-btn" onclick="testiNext()"><i
+            class="fas fa-arrow-right"></i></button>
+      </div>
+      <div class="result-images">
+        <div class="result-img-card"><a href="https://ibb.co/zVJ9qVr1" target="_blank"><img
+              src="https://i.ibb.co/xqH9xqDy/Whats-App-Image-2026-06-12-at-11-56-44-PM.jpg"
+              alt="Walmart Reinstatement Result"></a></div>
+        <div class="result-img-card"><a href="https://ibb.co/4gDRzgF7" target="_blank"><img
+              src="https://i.ibb.co/bRy5TR6P/Whats-App-Image-2026-06-13-at-12-02-38-AM.jpg"
+              alt="Walmart Seller Approval Result"></a></div>
       </div>
     </div>
   </section>
@@ -2548,53 +2641,24 @@
     <div class="section-inner">
       <div class="eyebrow reveal" style="text-align:center;">Common Questions</div>
       <h2 class="section-title reveal reveal-delay-1" style="text-align:center;">Everything You<br>Want to Know.</h2>
-      <div class="faq-list" style="margin-top:48px;">
-        <div class="faq-item reveal">
-          <button class="faq-q" onclick="toggleFaq(this)">How does the commission model work exactly?<span
-              class="faq-icon">+</span></button>
+      <div class="faq-list">
+        <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">How does the commission model work
+            exactly?<span class="faq-icon">+</span></button>
           <div class="faq-a">
             <p>We manage your marketplace account and earn a percentage (typically 10–20%) of the revenue we generate
-              for you. You pay nothing upfront. We invoice monthly based on results only.</p>
+              for you. You pay nothing upfront.</p>
           </div>
         </div>
-        <div class="faq-item reveal reveal-delay-1">
-          <button class="faq-q" onclick="toggleFaq(this)">Do I keep ownership of my account?<span
-              class="faq-icon">+</span></button>
+        <div class="faq-item reveal reveal-delay-1"><button class="faq-q" onclick="toggleFaq(this)">Do I keep ownership
+            of my account?<span class="faq-icon">+</span></button>
           <div class="faq-a">
-            <p>Yes, always. You own 100% of your seller account. We operate it with your permission as a manager. You
-              can revoke access at any time — no questions asked.</p>
+            <p>Yes, always. You own 100% of your seller account. We operate it with your permission as a manager.</p>
           </div>
         </div>
-        <div class="faq-item reveal reveal-delay-2">
-          <button class="faq-q" onclick="toggleFaq(this)">Which platforms do you manage?<span
-              class="faq-icon">+</span></button>
+        <div class="faq-item reveal reveal-delay-2"><button class="faq-q" onclick="toggleFaq(this)">Which platforms do
+            you manage?<span class="faq-icon">+</span></button>
           <div class="faq-a">
-            <p>Amazon FBA/FBM, Etsy, eBay, TikTok Shop, Daraz, and Walmart. Multi-platform management is available and
-              often recommended for maximum revenue diversification.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal reveal-delay-1">
-          <button class="faq-q" onclick="toggleFaq(this)">How long before I see results?<span
-              class="faq-icon">+</span></button>
-          <div class="faq-a">
-            <p>Most clients see measurable improvement within 30–60 days. Full optimization with compounding results
-              typically shows at the 90-day mark, depending on platform and product niche.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal reveal-delay-2">
-          <button class="faq-q" onclick="toggleFaq(this)">Is there a minimum store size requirement?<span
-              class="faq-icon">+</span></button>
-          <div class="faq-a">
-            <p>No. We work with brand new stores AND established accounts doing $50K+/month. Commission model clients
-              just need an active product or idea to start.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal reveal-delay-3">
-          <button class="faq-q" onclick="toggleFaq(this)">What does "full account management" include?<span
-              class="faq-icon">+</span></button>
-          <div class="faq-a">
-            <p>Product listings, SEO optimization, PPC ads, pricing strategy, inventory management, customer service,
-              brand protection, A+ content, and monthly performance reporting. Everything.</p>
+            <p>Amazon FBA/FBM, Etsy, eBay, TikTok Shop, Daraz, and Walmart. Multi-platform management is available.</p>
           </div>
         </div>
       </div>
@@ -2607,74 +2671,72 @@
       <div class="booking-hero-card reveal">
         <h3>Book a Free Store Audit.</h3>
         <p>No pitch. No pressure. We look at your store for free, tell you what's broken, and show you what we'd do.
-          Takes 30 minutes.</p>
-        <a href="https://wa.me/923334038991?text=Hi, I want a free store audit from Khan Ecom Booster LLC"
-          target="_blank" class="btn-white"><i class="fab fa-whatsapp" style="color:#25D366;"></i> Talk to Us on
-          WhatsApp</a>
+          Takes 30 minutes.</p><a href="https://wa.me/923334038991?text=Hi, I want a free store audit" target="_blank"
+          class="btn-white"><i class="fab fa-whatsapp" style="color:#25D366;"></i> Talk to Us on WhatsApp</a>
       </div>
       <div class="booking-grid-label reveal">Or book a specific service:</div>
-      <div class="booking-grid reveal">
-        <a class="booking-item" href="https://wa.me/923334038991?text=Hi, I need Amazon FBA Management"
-          target="_blank"><span class="bi">📦</span><span>Amazon FBA</span></a>
-        <a class="booking-item" href="https://wa.me/923334038991?text=Hi, I need Amazon FBM Management"
-          target="_blank"><span class="bi">🏭</span><span>Amazon FBM</span></a>
-        <a class="booking-item" href="https://wa.me/923334038991?text=Hi, I need Etsy Management" target="_blank"><span
-            class="bi">🧵</span><span>Etsy Shop</span></a>
-        <a class="booking-item" href="https://wa.me/923334038991?text=Hi, I need eBay Management" target="_blank"><span
-            class="bi">🏷️</span><span>eBay</span></a>
-        <a class="booking-item" href="https://wa.me/923334038991?text=Hi, I need TikTok Shop Management"
-          target="_blank"><span class="bi">🎵</span><span>TikTok Shop</span></a>
-        <a class="booking-item" href="https://wa.me/923334038991?text=Hi, I need Daraz Management" target="_blank"><span
-            class="bi">🛒</span><span>Daraz</span></a>
-        <a class="booking-item" href="https://wa.me/923334038991?text=Hi, I need Walmart Management"
-          target="_blank"><span class="bi">🏪</span><span>Walmart</span></a>
-        <a class="booking-item" href="https://wa.me/923334038991?text=Hi, I need PPC Ads Management"
-          target="_blank"><span class="bi">📊</span><span>PPC Ads</span></a>
-        <a class="booking-item" href="https://wa.me/923334038991?text=Hi, I need Listing SEO Optimization"
-          target="_blank"><span class="bi">🔍</span><span>Listing SEO</span></a>
-        <a class="booking-item" href="https://wa.me/923334038991?text=Hi, I am interested in Commission Partnership"
-          target="_blank" style="border-color:rgba(240,92,47,0.3);"><span class="bi">💰</span><span>Commission
-            Deal</span></a>
-      </div>
+      <div class="booking-grid reveal"><a class="booking-item"
+          href="https://wa.me/923334038991?text=Hi, I need Amazon FBA Management" target="_blank"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxwUGMThSMYygZoRtiJEmrL-06o0HboKs5IdnHgn73Sg&s=10"><span>Amazon
+            FBA</span></a><a class="booking-item"
+          href="https://wa.me/923334038991?text=Hi, I need Amazon FBM Management" target="_blank"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxwUGMThSMYygZoRtiJEmrL-06o0HboKs5IdnHgn73Sg&s=10"><span>Amazon
+            FBM</span></a><a class="booking-item" href="https://wa.me/923334038991?text=Hi, I need Etsy Management"
+          target="_blank"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcN_rXmYvQlrzvcG4vGfinYPhy1jgPzoYy1-UG4JLTtw&s=10"><span>Etsy
+            Shop</span></a><a class="booking-item" href="https://wa.me/923334038991?text=Hi, I need eBay Management"
+          target="_blank"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG-WE-ryeMyJl94y1P5GaaOgUcp4EBil37zteKm-dx1w&s=10"><span>eBay</span></a><a
+          class="booking-item" href="https://wa.me/923334038991?text=Hi, I need TikTok Shop Management"
+          target="_blank"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4dhnhjZI-zL2oxii-FpCWSP-0Nt4g1ObZwg&s"><span>TikTok
+            Shop</span></a><a class="booking-item"
+          href="https://wa.me/923334038991?text=Hi, I need Walmart Seller Approval" target="_blank"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMIWRFhAKXElD1Ks7U-5g3fqA77uuY9p4ydA&s"><span>Walmart
+            Approval</span></a><a class="booking-item"
+          href="https://wa.me/923334038991?text=Hi, I need Walmart Reinstatement" target="_blank"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMIWRFhAKXElD1Ks7U-5g3fqA77uuY9p4ydA&s"><span>Walmart
+            Reinstatement</span></a><a class="booking-item"
+          href="https://wa.me/923334038991?text=Hi, I need PPC Ads Management" target="_blank"><span
+            class="bi">📊</span><span>PPC Ads</span></a><a class="booking-item"
+          href="https://wa.me/923334038991?text=Hi, I need Listing SEO Optimization" target="_blank"><span
+            class="bi">🔍</span><span>Listing SEO</span></a><a class="booking-item"
+          href="https://wa.me/923334038991?text=Hi, I am interested in Commission Partnership" target="_blank"
+          style="border-color:rgba(240,92,47,0.3);"><span class="bi">💰</span><span>Commission Deal</span></a></div>
       <div class="booking-email reveal">Prefer email? <a
           href="mailto:khanecomboosterllc@gmail.com">khanecomboosterllc@gmail.com</a></div>
     </div>
   </section>
 
-  <!-- GLOBAL -->
+  <!-- GLOBAL MAP -->
   <section id="global">
     <div class="section-inner">
       <div class="eyebrow reveal" style="text-align:center;">Our Reach</div>
       <h2 class="section-title reveal reveal-delay-1" style="text-align:center;">One Agency.<br>Every Market.</h2>
-      <p class="section-sub reveal reveal-delay-2" style="margin:0 auto 48px;text-align:center;">Remote-first agency.
-        Serving clients across 30+ countries from a single dedicated team.</p>
-      <div class="map-wrap reveal">
-        <svg class="world-svg" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+      <div class="map-wrap reveal"><svg class="world-svg" viewBox="0 0 1000 500">
           <rect width="1000" height="500" fill="none" />
           <path d="M80 120 L200 80 L260 100 L280 160 L250 200 L220 240 L180 280 L140 260 L100 200 Z" fill="#F05C2F"
             opacity="0.22" stroke="#F05C2F" stroke-width="1" />
           <path d="M200 280 L260 270 L280 320 L270 400 L230 430 L200 410 L190 360 L195 310 Z" fill="#F05C2F"
-            opacity="0.22" stroke="#F05C2F" stroke-width="1" />
-          <path d="M440 80 L520 70 L540 100 L530 140 L490 150 L450 140 L430 120 Z" fill="#F05C2F" opacity="0.22"
-            stroke="#F05C2F" stroke-width="1" />
+            opacity="0.22" />
+          <path d="M440 80 L520 70 L540 100 L530 140 L490 150 L450 140 L430 120 Z" fill="#F05C2F" opacity="0.22" />
           <path d="M450 160 L520 150 L550 200 L540 300 L500 340 L460 300 L440 240 L440 190 Z" fill="#F05C2F"
-            opacity="0.22" stroke="#F05C2F" stroke-width="1" />
+            opacity="0.22" />
           <path d="M540 60 L800 50 L850 120 L820 200 L750 220 L650 200 L580 180 L550 140 L530 100 Z" fill="#F05C2F"
-            opacity="0.22" stroke="#F05C2F" stroke-width="1" />
+            opacity="0.22" />
           <path d="M640 200 L700 200 L710 260 L670 280 L640 250 Z" fill="#F27852" opacity="0.32" />
-          <path d="M780 300 L880 280 L900 360 L860 400 L800 390 L770 340 Z" fill="#F05C2F" opacity="0.22"
-            stroke="#F05C2F" stroke-width="1" />
+          <path d="M780 300 L880 280 L900 360 L860 400 L800 390 L770 340 Z" fill="#F05C2F" opacity="0.22" />
         </svg>
-        <div class="pulse-dot" style="top:28%;left:14%;animation-delay:0s;"></div>
-        <div class="pulse-dot" style="top:18%;left:47%;animation-delay:0.5s;"></div>
-        <div class="pulse-dot" style="top:42%;left:64%;animation-delay:1s;"></div>
-        <div class="pulse-dot" style="top:30%;left:72%;animation-delay:1.5s;"></div>
-        <div class="pulse-dot" style="top:22%;left:82%;animation-delay:0.8s;"></div>
-        <div class="pulse-dot" style="top:68%;left:80%;animation-delay:1.2s;"></div>
-        <div class="pulse-dot" style="top:55%;left:18%;animation-delay:0.3s;"></div>
+        <div class="pulse-dot" style="top:28%;left:14%;"></div>
+        <div class="pulse-dot" style="top:18%;left:47%;"></div>
+        <div class="pulse-dot" style="top:42%;left:64%;"></div>
+        <div class="pulse-dot" style="top:30%;left:72%;"></div>
+        <div class="pulse-dot" style="top:22%;left:82%;"></div>
+        <div class="pulse-dot" style="top:68%;left:80%;"></div>
+        <div class="pulse-dot" style="top:55%;left:18%;"></div>
       </div>
       <div class="global-stats reveal">
-        <div class="g-pill">🌎 <span>30+</span> Countries</div>
+        <div class="g-pill">🌎 <span>10+</span> Countries</div>
         <div class="g-pill">📦 <span>150+</span> Active Stores</div>
         <div class="g-pill">🕐 <span>24/7</span> Support</div>
         <div class="g-pill">💱 <span>Multi-Currency</span></div>
@@ -2683,12 +2745,12 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT (FULL) -->
   <section id="contact">
     <div class="section-inner">
       <div class="eyebrow reveal" style="text-align:center;">Connect</div>
       <h2 class="section-title reveal reveal-delay-1" style="text-align:center;">Let's Build Something<br>Together.</h2>
-      <div class="contact-grid" style="margin-top:56px;">
+      <div class="contact-grid">
         <div>
           <div class="contact-card reveal">
             <div class="contact-card-top">
@@ -2698,41 +2760,39 @@
                 <div class="contact-val">+92 333 4038991</div>
               </div>
             </div>
-            <div class="contact-note">💬 Replies within 1 hour</div>
-            <a href="https://wa.me/923334038991" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Open
-              WhatsApp</a>
+            <div class="contact-note">💬 Replies within 1 hour</div><a href="https://wa.me/923334038991" target="_blank"
+              class="btn-wa"><i class="fab fa-whatsapp"></i> Open WhatsApp</a>
           </div>
           <div class="contact-card reveal reveal-delay-1">
             <div class="contact-card-top">
               <div class="contact-icon em"><i class="fas fa-envelope"></i></div>
               <div>
                 <div class="contact-label">Email</div>
-                <div class="contact-val" style="font-size:14px;">khanecomboosterllc@gmail.com</div>
+                <div class="contact-val">khanecomboosterllc@gmail.com</div>
               </div>
             </div>
-            <div class="contact-note">📧 Replies within 24 hours</div>
-            <a href="mailto:khanecomboosterllc@gmail.com" class="btn-em"><i class="fas fa-envelope"></i> Send Email</a>
+            <div class="contact-note">📧 Replies within 24 hours</div><a href="mailto:khanecomboosterllc@gmail.com"
+              class="btn-em"><i class="fas fa-envelope"></i> Send Email</a>
           </div>
         </div>
         <div class="reveal reveal-delay-2">
           <div class="social-title">Follow Our Journey</div>
-          <div class="social-grid">
-            <a href="#" class="social-icon si-fb"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
-            <a href="#" class="social-icon si-ig"><i class="fab fa-instagram"></i><span>Instagram</span></a>
-            <a href="#" class="social-icon si-tk"><i class="fab fa-tiktok"></i><span>TikTok</span></a>
-            <a href="#" class="social-icon si-yt"><i class="fab fa-youtube"></i><span>YouTube</span></a>
-            <a href="#" class="social-icon si-li"><i class="fab fa-linkedin-in"></i><span>LinkedIn</span></a>
-            <a href="#" class="social-icon si-tw"><i class="fab fa-x-twitter"></i><span>Twitter/X</span></a>
-            <a href="#" class="social-icon si-pi"><i class="fab fa-pinterest-p"></i><span>Pinterest</span></a>
-            <a href="#" class="social-icon si-sc"><i class="fab fa-snapchat-ghost"></i><span>Snapchat</span></a>
-            <a href="#" class="social-icon si-th"><i class="fab fa-threads"></i><span>Threads</span></a>
-          </div>
+          <div class="social-grid"><a href="#" class="social-icon si-fb"><i
+                class="fab fa-facebook-f"></i><span>Facebook</span></a><a href="#" class="social-icon si-ig"><i
+                class="fab fa-instagram"></i><span>Instagram</span></a><a href="#" class="social-icon si-tk"><i
+                class="fab fa-tiktok"></i><span>TikTok</span></a><a href="#" class="social-icon si-yt"><i
+                class="fab fa-youtube"></i><span>YouTube</span></a><a href="#" class="social-icon si-li"><i
+                class="fab fa-linkedin-in"></i><span>LinkedIn</span></a><a href="#" class="social-icon si-tw"><i
+                class="fab fa-x-twitter"></i><span>Twitter/X</span></a><a href="#" class="social-icon si-pi"><i
+                class="fab fa-pinterest-p"></i><span>Pinterest</span></a><a href="#" class="social-icon si-sc"><i
+                class="fab fa-snapchat-ghost"></i><span>Snapchat</span></a><a href="#" class="social-icon si-th"><i
+                class="fab fa-threads"></i><span>Threads</span></a></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (FULL) -->
   <footer>
     <div class="footer-inner">
       <div class="footer-top">
@@ -2740,7 +2800,7 @@
           <div class="footer-brand-name">Khan Ecom<span>Booster</span> LLC</div>
           <div class="footer-tagline">We Manage. You Profit.</div>
           <div class="footer-contact-line"><i class="fab fa-whatsapp" style="color:#25D366;"></i><a
-              href="https://wa.me/923334038991" target="_blank">+92 333 4038991</a></div>
+              href="https://wa.me/923334038991">+92 333 4038991</a></div>
           <div class="footer-contact-line"><i class="fas fa-envelope" style="color:var(--accent);"></i><a
               href="mailto:khanecomboosterllc@gmail.com">khanecomboosterllc@gmail.com</a></div>
         </div>
@@ -2752,7 +2812,7 @@
             <li><a href="#services">Services</a></li>
             <li><a href="#how-it-works">How It Works</a></li>
             <li><a href="#commission">Commission Model</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#testimonials">Results</a></li>
             <li><a href="#booking">Book Now</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -2766,168 +2826,40 @@
             <li><a href="#">TikTok Shop</a></li>
             <li><a href="#">Daraz</a></li>
             <li><a href="#">Walmart</a></li>
-            <li><a href="#">PPC Ads</a></li>
-            <li><a href="#">Listing SEO</a></li>
+            <li><a href="#">Walmart Approval</a></li>
+            <li><a href="#">Walmart Reinstatement</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <div class="footer-copy">© 2025 Khan Ecom Booster LLC. All Rights Reserved. Made for global commerce.</div>
-        <div class="footer-socials">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-tiktok"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#"><i class="fab fa-x-twitter"></i></a>
-        </div>
+        <div class="footer-socials"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i
+              class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-tiktok"></i></a><a href="#"><i
+              class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i
+              class="fab fa-x-twitter"></i></a></div>
       </div>
     </div>
   </footer>
 
-  <!-- FLOATING WHATSAPP -->
-  <a href="https://wa.me/923334038991?text=Hi, I want to discuss my store with Khan Ecom Booster LLC" target="_blank"
-    class="wa-float" aria-label="WhatsApp">
-    <div class="wa-ring"></div>
-    <i class="fab fa-whatsapp"></i>
-    <span class="wa-tooltip">Chat on WhatsApp</span>
+  <!-- FLOATING WHATSAPP & BACK TO TOP -->
+  <a href="https://wa.me/923334038991?text=Hi, I want to discuss my store" target="_blank" class="wa-float">
+    <div class="wa-ring"></div><i class="fab fa-whatsapp"></i><span class="wa-tooltip">Chat on WhatsApp</span>
   </a>
+  <a href="#home" id="back-top"><i class="fas fa-arrow-up"></i></a>
 
-  <!-- BACK TO TOP -->
-  <a href="#home" id="back-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
-
+  <!-- JAVASCRIPT -->
   <script>
-    // PRELOADER
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        const pre = document.getElementById('preloader');
-        pre.style.opacity = '0';
-        pre.style.transition = 'opacity 0.5s ease';
-        setTimeout(() => { pre.style.display = 'none'; }, 500);
-      }, 1600);
-    });
-
-    // SCROLL PROGRESS
-    window.addEventListener('scroll', () => {
-      const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-      document.getElementById('scroll-progress').style.width = scrolled + '%';
-    });
-
-    // NAV
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-      const bt = document.getElementById('back-top');
-      bt.classList.toggle('visible', window.scrollY > window.innerHeight * 0.4);
-    });
-
-    // HAMBURGER
-    const ham = document.getElementById('ham');
-    const mobileMenu = document.getElementById('mobileMenu');
-    ham.addEventListener('click', () => {
-      ham.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-    });
-    function closeMob() {
-      ham.classList.remove('open');
-      mobileMenu.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    // SCROLL REVEAL
-    const reveals = document.querySelectorAll('.reveal');
-    const revealObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    reveals.forEach(r => revealObs.observe(r));
-
-    // STAT COUNTER
-    const statNums = document.querySelectorAll('.stat-num[data-target]');
-    const statObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const el = e.target;
-          const target = parseInt(el.dataset.target);
-          const prefix = el.dataset.prefix || '';
-          const suffix = el.dataset.suffix || '+';
-          let current = 0;
-          const step = target / 60;
-          const timer = setInterval(() => {
-            current = Math.min(current + step, target);
-            el.textContent = prefix + Math.floor(current) + suffix;
-            if (current >= target) clearInterval(timer);
-          }, 25);
-          statObs.unobserve(el);
-        }
-      });
-    }, { threshold: 0.5 });
-    statNums.forEach(n => statObs.observe(n));
-
-    // TESTIMONIAL CAROUSEL
-    const track = document.getElementById('testiTrack');
-    const cards = track.querySelectorAll('.testi-card');
-    const dotsContainer = document.getElementById('testiDots');
-    let currentSlide = 0;
-    let slidesVisible = window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
-
-    function updateSlides() {
-      slidesVisible = window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
-      const maxSlide = cards.length - slidesVisible;
-      if (currentSlide > maxSlide) currentSlide = maxSlide;
-      const cardW = cards[0].getBoundingClientRect().width;
-      const gap = 24;
-      track.style.transform = `translateX(-${currentSlide * (cardW + gap)}px)`;
-      dotsContainer.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
-    }
-
-    // Build dots
-    const totalDots = cards.length - slidesVisible + 1 < 1 ? 1 : cards.length - (window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3) + 1;
-    for (let i = 0; i < Math.max(cards.length - 2, 1); i++) {
-      const d = document.createElement('div');
-      d.className = 'dot' + (i === 0 ? ' active' : '');
-      d.onclick = () => { currentSlide = i; updateSlides(); };
-      dotsContainer.appendChild(d);
-    }
-
-    function testiNext() {
-      const maxSlide = cards.length - slidesVisible;
-      currentSlide = currentSlide >= maxSlide ? 0 : currentSlide + 1;
-      updateSlides();
-    }
-    function testiPrev() {
-      const maxSlide = cards.length - slidesVisible;
-      currentSlide = currentSlide <= 0 ? maxSlide : currentSlide - 1;
-      updateSlides();
-    }
-    window.testiNext = testiNext;
-    window.testiPrev = testiPrev;
-
-    let autoTesti = setInterval(testiNext, 5000);
-    track.addEventListener('mouseenter', () => clearInterval(autoTesti));
-    track.addEventListener('mouseleave', () => { autoTesti = setInterval(testiNext, 5000); });
-
-    window.addEventListener('resize', () => {
-      slidesVisible = window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
-      updateSlides();
-    });
-
-    // Touch swipe for testimonials
-    let touchStartX = 0;
-    track.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
-    track.addEventListener('touchend', e => {
-      const diff = touchStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) { diff > 0 ? testiNext() : testiPrev(); }
-    }, { passive: true });
-
-    // FAQ
-    function toggleFaq(btn) {
-      const item = btn.parentElement;
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    }
-    window.toggleFaq = toggleFaq;
+    window.addEventListener('load', () => { setTimeout(() => { const pre = document.getElementById('preloader'); pre.style.opacity = '0'; setTimeout(() => { pre.style.display = 'none'; }, 500); }, 1600); });
+    window.addEventListener('scroll', () => { const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100; document.getElementById('scroll-progress').style.width = scrolled + '%'; const navbar = document.getElementById('navbar'); navbar.classList.toggle('scrolled', window.scrollY > 50); const bt = document.getElementById('back-top'); bt.classList.toggle('visible', window.scrollY > window.innerHeight * 0.4); });
+    const ham = document.getElementById('ham'); const mobileMenu = document.getElementById('mobileMenu'); ham.addEventListener('click', () => { ham.classList.toggle('open'); mobileMenu.classList.toggle('open'); document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : ''; }); function closeMob() { ham.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+    const reveals = document.querySelectorAll('.reveal'); const revealObs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } }); }, { threshold: 0.1 }); reveals.forEach(r => revealObs.observe(r));
+    const statNums = document.querySelectorAll('.stat-num[data-target]'); const statObs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { const el = e.target; const target = parseInt(el.dataset.target); const prefix = el.dataset.prefix || ''; const suffix = el.dataset.suffix || '+'; let current = 0; const step = target / 60; const timer = setInterval(() => { current = Math.min(current + step, target); el.textContent = prefix + Math.floor(current) + suffix; if (current >= target) clearInterval(timer); }, 25); statObs.unobserve(el); } }); }, { threshold: 0.5 }); statNums.forEach(n => statObs.observe(n));
+    const track = document.getElementById('testiTrack'); const cards = track.querySelectorAll('.testi-card'); const dotsContainer = document.getElementById('testiDots'); let currentSlide = 0; let slidesVisible = window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+    function updateSlides() { slidesVisible = window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3; const maxSlide = cards.length - slidesVisible; if (currentSlide > maxSlide) currentSlide = maxSlide; const cardW = cards[0].getBoundingClientRect().width; const gap = 24; track.style.transform = `translateX(-${currentSlide * (cardW + gap)}px)`; dotsContainer.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide)); }
+    for (let i = 0; i < Math.max(cards.length - 1, 1); i++) { const d = document.createElement('div'); d.className = 'dot' + (i === 0 ? ' active' : ''); d.onclick = () => { currentSlide = i; updateSlides(); }; dotsContainer.appendChild(d); }
+    window.testiNext = () => { const maxSlide = cards.length - slidesVisible; currentSlide = currentSlide >= maxSlide ? 0 : currentSlide + 1; updateSlides(); }; window.testiPrev = () => { const maxSlide = cards.length - slidesVisible; currentSlide = currentSlide <= 0 ? maxSlide : currentSlide - 1; updateSlides(); };
+    let autoTesti = setInterval(testiNext, 5000); track.addEventListener('mouseenter', () => clearInterval(autoTesti)); track.addEventListener('mouseleave', () => { autoTesti = setInterval(testiNext, 5000); }); window.addEventListener('resize', () => { slidesVisible = window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3; updateSlides(); });
+    function toggleFaq(btn) { const item = btn.parentElement; const isOpen = item.classList.contains('open'); document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open')); if (!isOpen) item.classList.add('open'); } window.toggleFaq = toggleFaq;
   </script>
 </body>
 
